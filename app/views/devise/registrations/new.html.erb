@@ -1,0 +1,75 @@
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <%= f.form_group :email, label: { text: "Skill" }, help: "Optional Help Text" do %>
+  <%= f.radio_button :email, Brand, label: "Brand", checked: true %>
+  <%= f.radio_button :email, Retailler, label: "Retailler" %>
+<% end %>
+
+  <div class="field">
+    <%= f.label :Company_website %><br />
+    <%= f.url_field :website, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Addresss %><br />
+    <%= f.text_field :address, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Zip_code %><br />
+    <%= f.text_field :zip_code, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Country %><br />
+    <%= f.text_field :country, autofocus: true %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :first_name_contact %><br />
+    <%= f.text_field :firstname_contact, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name_contact %><br />
+    <%= f.text_field :lastname_contact, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone_number %><br />
+    <%= f.text_field :phone, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Description %><br />
+    <%= f.text_area :description, autofocus: true %>
+  </div>   
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+  
+<% end %>
+
+<%= render "devise/shared/links" %>
