@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name_collections: MyString
+  date_availability: 2017-03-20 12:09:00
+  description: MyText
+  image: MyString
+  status: false
+  brands_id: MyString
+  retaillers_id: MyString
+
+two:
+  name_collections: MyString
+  date_availability: 2017-03-20 12:09:00
+  description: MyText
+  image: MyString
+  status: false
+  brands_id: MyString
+  retaillers_id: MyString
