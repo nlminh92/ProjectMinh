@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170320111746) do
+ActiveRecord::Schema.define(version: 20170320145344) do
 
   create_table "brands", force: :cascade do |t|
-    t.string   "user_id"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_brands_on_user_id"
   end
 
   create_table "collections", force: :cascade do |t|
@@ -24,10 +25,12 @@ ActiveRecord::Schema.define(version: 20170320111746) do
     t.text     "description"
     t.string   "image"
     t.boolean  "status",            default: false
-    t.string   "brands_id"
-    t.string   "retaillers_id"
+    t.integer  "brand_id_id"
+    t.integer  "retailler_id_id"
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
+    t.index ["brand_id_id"], name: "index_collections_on_brand_id_id"
+    t.index ["retailler_id_id"], name: "index_collections_on_retailler_id_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -39,24 +42,29 @@ ActiveRecord::Schema.define(version: 20170320111746) do
     t.string   "type_sell"
     t.string   "code"
     t.string   "season"
-    t.text     "description"
+    t.string   "description"
     t.datetime "date_availability"
     t.string   "country"
     t.decimal  "price"
     t.string   "size"
-    t.integer  "disccount"
+    t.integer  "discount"
     t.string   "variants"
     t.boolean  "on_sale",           default: false
-    t.string   "brands_id"
-    t.string   "retaillers_id"
+    t.integer  "brand_id"
+    t.integer  "retailler_id"
+    t.integer  "collection_id"
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
+    t.index ["brand_id"], name: "index_products_on_brand_id"
+    t.index ["collection_id"], name: "index_products_on_collection_id"
+    t.index ["retailler_id"], name: "index_products_on_retailler_id"
   end
 
   create_table "retaillers", force: :cascade do |t|
-    t.string   "user_id"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_retaillers_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

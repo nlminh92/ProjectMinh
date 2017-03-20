@@ -9,16 +9,17 @@ one:
   type_sell: MyString
   code: MyString
   season: MyString
-  description: MyText
-  date_availability: 2017-03-20 12:03:11
+  description: MyString
+  date_availability: 2017-03-20 15:53:48
   country: MyString
   price: 9.99
   size: MyString
-  disccount: 1
+  discount: 1
   variants: MyString
   on_sale: false
-  brands_id: MyString
-  retaillers_id: MyString
+  brand: one
+  retailler: one
+  collection: one
 
 two:
   name_products: MyString
@@ -29,13 +30,14 @@ two:
   type_sell: MyString
   code: MyString
   season: MyString
-  description: MyText
-  date_availability: 2017-03-20 12:03:11
+  description: MyString
+  date_availability: 2017-03-20 15:53:48
   country: MyString
   price: 9.99
   size: MyString
-  disccount: 1
+  discount: 1
   variants: MyString
   on_sale: false
-  brands_id: MyString
-  retaillers_id: MyString
+  brand: two
+  retailler: two
+  collection: two

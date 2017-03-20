@@ -6,8 +6,8 @@ class CreateCollections < ActiveRecord::Migration[5.0]
       t.text :description
       t.string :image
       t.boolean :status, default: false
-      t.string :brands_id
-      t.string :retaillers_id
+      t.references :brand_id, foreign_key: true
+      t.references :retailler_id, foreign_key: true
 
       t.timestamps
     end

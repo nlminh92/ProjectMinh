@@ -2,18 +2,18 @@
 
 one:
   name_collections: MyString
-  date_availability: 2017-03-20 12:09:00
+  date_availability: 2017-03-20 15:49:36
   description: MyText
   image: MyString
   status: false
-  brands_id: MyString
-  retaillers_id: MyString
+  brand_id: one
+  retailler_id: one
 
 two:
   name_collections: MyString
-  date_availability: 2017-03-20 12:09:00
+  date_availability: 2017-03-20 15:49:36
   description: MyText
   image: MyString
   status: false
-  brands_id: MyString
-  retaillers_id: MyString
+  brand_id: two
+  retailler_id: two
