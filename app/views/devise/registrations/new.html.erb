@@ -3,15 +3,17 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
+  <b> Select Account Type</b>
+  <%= f.radio_button :type, 0, label: "Brand" %>
+  <%= f.label :Brand %>
+  <%= f.radio_button :type, 1, label: "Retailer" %>
+  <%= f.label :Retailer %>
+
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
 
-  <%= f.form_group :email, label: { text: "Skill" }, help: "Optional Help Text" do %>
-  <%= f.radio_button :email, Brand, label: "Brand", checked: true %>
-  <%= f.radio_button :email, Retailler, label: "Retailler" %>
-<% end %>
 
   <div class="field">
     <%= f.label :Company_website %><br />
@@ -45,7 +47,7 @@
 
   <div class="field">
     <%= f.label :phone_number %><br />
-    <%= f.text_field :phone, autofocus: true %>
+    <%= f.telephone_field :phone, autofocus: true %>
   </div>
 
   <div class="field">
@@ -69,7 +71,7 @@
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
-  
+
 <% end %>
 
 <%= render "devise/shared/links" %>
