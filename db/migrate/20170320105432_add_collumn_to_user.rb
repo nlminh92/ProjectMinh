@@ -12,6 +12,6 @@ class AddCollumnToUser < ActiveRecord::Migration[5.0]
     add_column :users, :description, :text
     add_column :users, :activated, :boolean, default: false
     add_column :users, :brands_carried, :text
-    add_column :users, :type, :boolean, default: false
+    add_column :users, :type_user, :integer, default: false
   end
 end
