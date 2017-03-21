@@ -41,6 +41,12 @@
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
                     </li>
+                    <li>
+                        <%= link_to 'login', destroy_user_session_path, :method => :delete %>
+                    </li>
+                    <li>
+                        <%= link_to 'Singup', new_user_registration_path %>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
