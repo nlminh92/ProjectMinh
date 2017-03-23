@@ -5,6 +5,5 @@ Rails.application.routes.draw do
 
 
  root "homepage#index"
-
- get 'dashboard/index'
+ resources :homes
 end
