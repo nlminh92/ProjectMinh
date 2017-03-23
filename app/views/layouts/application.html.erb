@@ -23,6 +23,14 @@
   </head>
 
   <body>
-    <%= yield %>
+    <% if user_signin %>
+      <div id="wrapper">
+        <%= render "layout_login/header" %>
+        <%= render "layout_login/slidebar" %>
+        <%= yield %>
+      </div>
+    <% else %>
+      <%= yield %>
+    <% end %>
   </body>
 </html>
