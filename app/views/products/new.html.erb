@@ -1,0 +1,32 @@
+<div id="page-wrapper">
+  <div class="row" style="border-bottom: 1px solid black;">
+    <div class="col-md-8" style="border-right: 1px solid black;">
+      <div class="col-md-6">
+        <h4>ADD NEW PRODUCT</h4>
+      </div>
+      <div class="col-md-3">
+        <h5>Product Status</h5>
+      </div>
+      <div class="col-md-3">
+        <input id="active_event" type="checkbox" checked
+          data-toggle="toggle" data-on="ACTIVE" data-off="INACTIVE" data-width="100" data-onstyle="success">
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="col-md-6">
+        <button class="btn btn-default" onclick="toggleOn()">CANCEL</button>
+      </div>
+      <div class="col-md-6">
+        <button class="btn btn-success" onclick="toggleOn()">CREATE</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  $(document).on('ready page:change', function() {
+    $('#active_event').change(function() {
+      console.log('Toggle: ' + $(this).prop('checked'))
+    })
+  });
+</script>

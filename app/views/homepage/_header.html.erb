@@ -30,7 +30,11 @@
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
                     </li>
+                    
                     <% if user_signin %>
+                      <li>
+                        <%= link_to 'Site managers', homes_path %>
+                      </li>
                       <li>
                           <%= link_to 'logout', destroy_user_session_path, :method => :delete %>
                       </li>
