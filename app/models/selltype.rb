@@ -1,0 +1,2 @@
+class Selltype < ApplicationRecord
+end

@@ -6,4 +6,6 @@ Rails.application.routes.draw do
 
  root "homepage#index"
  resources :homes
+ resources :dashboards
+ resources :products
 end

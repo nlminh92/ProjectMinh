@@ -23,4 +23,12 @@ module ApplicationHelper
     end
   end
 
+  def admin
+    if current_user.activated && current_user.type_user == 3
+      return true
+    else
+      return false
+    end
+  end
+
 end
