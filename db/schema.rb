@@ -10,14 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170331142006) do
+ActiveRecord::Schema.define(version: 20170401071117) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_brands_on_user_id", using: :btree
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -82,10 +80,8 @@ ActiveRecord::Schema.define(version: 20170331142006) do
 
   create_table "retaillers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_retaillers_on_user_id", using: :btree
   end
 
   create_table "selltypes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -120,15 +116,19 @@ ActiveRecord::Schema.define(version: 20170331142006) do
     t.boolean  "activated",                            default: false
     t.text     "brands_carried",         limit: 65535
     t.integer  "type_user",                            default: 0
+    t.integer  "brand_id"
+    t.integer  "retailler_id"
+    t.index ["brand_id"], name: "index_users_on_brand_id", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["retailler_id"], name: "index_users_on_retailler_id", using: :btree
   end
 
-  add_foreign_key "brands", "users"
   add_foreign_key "collections", "brands"
   add_foreign_key "collections", "retaillers"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "collections"
   add_foreign_key "products", "retaillers"
-  add_foreign_key "retaillers", "users"
+  add_foreign_key "users", "brands"
+  add_foreign_key "users", "retaillers"
 end
