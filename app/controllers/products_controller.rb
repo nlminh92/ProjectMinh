@@ -10,6 +10,10 @@ class ProductsController < ApplicationController
     @sell_types = Selltype.all
   end
 
+  def show
+    @product_types  
+  end
+
   def create
     byebug
   end

@@ -8,4 +8,9 @@ Rails.application.routes.draw do
  resources :homes
  resources :dashboards
  resources :products
+ get 'products/new'
+ resources :brands
+ get 'brands/index'
+ resources :retailers
+ get 'retailers/index'
 end
