@@ -13,4 +13,6 @@ Rails.application.routes.draw do
  get 'brands/index'
  resources :retailers
  get 'retailers/index'
+ resources :blogs
+ get 'blogs/index'
 end
