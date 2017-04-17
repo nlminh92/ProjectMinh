@@ -8,6 +8,7 @@ Rails.application.routes.draw do
  resources :homes
  resources :dashboards
  resources :products
+ resources :collections
  get 'products/new'
  resources :brands
  get 'brands/index'
