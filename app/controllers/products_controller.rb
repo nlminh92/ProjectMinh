@@ -11,7 +11,6 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product_types  
   end
 
   def create
