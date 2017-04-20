@@ -24,33 +24,21 @@
             <th>Sell Type</th>
             <th>Gender</th>
             <th>Status</th>
+            <th>View</th>
           </tr>
         </thead>
         <tbody>
+         <% @products.each do |product| %>
           <tr>
-            <td><img src="img/1.jpg" class="image-product"></td>
-            <td>Doe</td>
-            <td>QA231</td>
+            <td><img src="<%= product.image %>" class="image-product"></td>
+            <td><%= product.name_products %></td>
+            <td><%= product.code %></td>
             <td>Pre-Order</td>
             <td>Men</td>
             <td>Active</td>
+            <td><%= link_to "View", product_path(product.id) %></td>
           </tr>
-          <tr>
-            <td><img src="img/2.jpg" class="image-product"></td>
-            <td>Moe</td>
-            <td>GF563</td>
-            <td>Inventory</td>
-            <td>Women</td>
-            <td>Inactive</td>
-          </tr>
-          <tr>
-            <td><img src="img/3.jpg" class="image-product"></td>
-            <td>Dooley</td>
-            <td>HD1231</td>
-            <td>Pre-Order</td>
-            <td>Kids</td>
-            <td>Active</td>
-          </tr>
+        <% end %>
         </tbody>
       </table>
     </div>

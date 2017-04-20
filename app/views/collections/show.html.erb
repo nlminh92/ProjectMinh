@@ -1,0 +1,69 @@
+<div id="page-wrapper" ng-app="app">
+  <div ng-controller="product_controller">
+      <div class="row" style="border-bottom: 1px solid black;">
+        <div class="col-md-8" style="border-right: 1px solid black;">
+          <div class="col-md-6">
+            <h4>ADD NEW COLLECTION</h4>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="col-md-6">
+            <button class="btn btn-default" type="reset" name="reset">DELETE</button>
+          </div>
+          <div class="col-md-6">
+            <button class="btn btn-success" id="send" type="submit">EDIT</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <h4>Collection Image</h4>
+          
+          <img src="<%= @collection.image %>" alt="" style="width: 100%;">
+        </div>
+        <div class="col-md-8" style="border-left: 1px solid black; padding-left: 60px;">
+          <div class="col-md-12">
+            <h4>BASIC INFORMATION</h4>
+          </div>
+          <div class="form-group">
+            <label for="style_code">Collection Title</label>
+            <input type="text" class="form-control" id="style_code" name="title" value="<%= @collection.name_collections %>" disabled>
+          </div>
+          <div class="form-group">
+            <label for="product_name">Available on</label>
+            <input type="text" class="form-control" id="product_name" name="available" value="<%= @collection.name_collections %>" disabled>
+          </div>
+          <div class"form-group" style= "margin-bottom: 20px;">
+            <label for="description">Collection Description</label>
+            <textarea class="form-control" rows="5" id="comment" name="description" disabled><%= @collection.description %></textarea>
+          </div>
+        </div>
+
+        <div class="row" style="margin-bottom: 20px;">
+          <div class="col-md-12" style="border-top: 1px solid black;">
+            <h4>COLLECTION STATUS</h4>
+            <label class="radio-inline"><input type="radio" name="optradio">Active</label>
+            <label class="radio-inline"><input type="radio" name="optradio">Inactive</label>
+          </div>
+        </div>
+
+        <div class="row" style="margin-bottom: 20px;">
+          <div class="col-md-12" style="border-top: 1px solid black;">
+            <h4>COLLECTION PRODUCTS</h4>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+<style>
+  .a {
+    -ms-transform: scale(2); /* IE */
+    -moz-transform: scale(2); /* FF */
+    -webkit-transform: scale(2); /* Safari and Chrome */
+    -o-transform: scale(2); /* Opera */
+    padding: 10px;
+    margin: auto;
+  }
+</style>

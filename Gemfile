@@ -9,6 +9,7 @@ gem 'coffee-script-source', '1.8.0'
 gem 'devise', '4.0'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'rails', '~> 5.0.1'
+gem 'carrierwave', '~> 1.0'
 
 group :development do
 	# gem 'sqlite3'

@@ -14,13 +14,13 @@
   </div>
   <div class="row" style="margin-top: 30px;">
     <div class="col-md-5" style="border-right: 1px solid black; height: 70vh;">
-      <img src="/img/1.jpg" alt="">
+      <img src="<%= @product.image %>" alt="" style="width: 100%; height: auto;">
     </div>
     <div class="col-md-7" style="padding-left:20px;">
       <h4 style="color:red;">IMONI</h4>
-      <p style="font-size:18px; padding-left:20px;">Doe</>
+      <p style="font-size:18px; padding-left:20px;"><%= @product.name_products %></>
       <h4 style="color:red;">Style Code: </h4>
-      <p style="font-size:18px; padding-left:20px;">DQA231oe</>
+      <p style="font-size:18px; padding-left:20px;"><%= @product.code %></>
       <h4 style="color:red;">Colors</h4>
       <p style="font-size:18px; padding-left:20px;">Red</>
       <h4 style="color:red;">Sell Type:</h4>

@@ -8,26 +8,47 @@
   app.controller("product_controller", ['$scope', '$rootScope', function($scope, $rootScope) {
     $scope.test = "hehe";
     $scope.number_category = 0;
-    $scope.category_form = function() {
-      $scope.number_category++;
-      var form = '<div class="col-md-4"><div class="col-md-9">Category ' +
-        $scope.number_category +
-        '</div><button class="col-md-3" id="category-' + $scope.number_category +'>X</button></div>';
-      $(".category").append(form);
-      console.log(form);
+    $scope.list = [];
+    $scope.count = 0;
+    $scope.test = function() {
+      alert("1");
     }
-    for(var i = 0; i < $scope.number_category; i++) {
-      var id = '#category-' + i.toString();
-      $(id).on('click', function() {
-        
+  }]);
+
+  app.directive("addbuttonsbutton", function(){
+    return {
+      restrict: "E",
+      template: '<button type="button" class="btn btn-primary" style="margin-left: 10px;" addbuttons>  + ADD CATEGORY</button>'
+    }
+  });
+
+  app.directive("addbuttons", function($compile){
+    return function(scope, element, attrs){
+      element.bind("click", function(){
+        scope.category_index = 0;
+         scope.countries = [
+        {name:'Shoes', value:["Pumps & Stillettos", "Mules & Clogs", "Loafers & Moccasins", "Wedges", "Ballerinas & Flats", "Ankle Boots", "Espadrillas", "Boots", "Slippers", "Sneakers & Slip on", "Trekking, Hiking & Sport Shoes", "Sandals", "Baby & Kids Shoes", "Lace up Shoes", "Flip Flops"]},
+       {name:'Clothing', value:["Sportswear & Activewear", "Sweatshirts", "Swimwear & Beachwear", "Trousers", "Underwear & Nightwear", "Suits", "Gilet & Vests", "Shirts", "Blouses & Shirts", "Coats & Outerwear", "Dresses", "Blazers", "Leather & Denim Jackets", "Jeans", "Jumpsuits", "Knitwear", "Shorts", "Tops & T-shirts", "Skirts"]}];
+        scope.number_category++;
+        scope.list.push(scope.number_category);
+        console.log(scope.list);
+        angular.element(document.getElementById('space-for-buttons')).append($compile('<div class="col-md-4 category_{{list[number_category]}}" style="border: 1px solid black;"><div class="col-md-10"><h5>Category {{number_category}}</h5></div><div class="col-md-2" remove id={{number_category}}><h5>X</h5></div><div class="col-xs-12 col-md-12 form-group"><select id="subject-select" class="form-control" required="required" ng-model="category_index"><option ng-repeat="category in countries track by $index" value="{{$index}}">{{ category.name }} </option></select></div><div class="col-xs-12 col-md-12 form-group"><select id="subject-select" class="form-control" required="required" ng-model="get_subject"><option value=""></option><option ng-repeat="item in countries[category_index].value track by $index" value="{{$index}}">{{ item }} </option></select></div></div>')(scope));
       });
-    }
-  }])
+    };
+  });
+
+  app.directive("remove", function(){
+    return function(scope, element, attrs){
+      element.bind("click", function(){
+        element.remove();
+      });
+    };
+  });
 </script>
 
 <div id="page-wrapper" ng-app="app">
   <div ng-controller="product_controller">
-    <form class="form-horizontal form-label-left form" method="POST" action="/products" accept-charset="utf-8">
+    <form enctype="multipart/form-data" class="form-horizontal form-label-left form" method="POST" action="/products" accept-charset="utf-8">
       <div class="row" style="border-bottom: 1px solid black;">
         <div class="col-md-8" style="border-right: 1px solid black;">
           <div class="col-md-6">
@@ -55,6 +76,10 @@
       <div class="row">
         <div class="col-md-4">
           <h4>IMAGE UPLOAD</h4>
+          <%#<label for="file-upload" class="custom-file-upload">
+              <i class="fa fa-cloud-upload"></i> Upload Image
+          </label>%>
+          <input id="file-upload" type="file" name="picture"/>
         </div>
         <div class="col-md-8" style="border-left: 1px solid black; padding-left: 60px;">
           <div class="col-md-12">
@@ -127,12 +152,22 @@
           <div class="category col-md-12">
           </div>
           <div class="col-md-12">
-            <button type="button" class="btn btn-primary" style="margin-left: 10px;" ng-click="category_form()">
-              + ADD CATEGORY
-            </button>
+             <div id="space-for-buttons"></div>
+             <addbuttonsbutton></addbuttonsbutton>
           </div>
         </div>
       </form>
     </div>
   </div>
 </div>
+<style>
+  <%#input[type="file"] {
+      display: none;
+  }
+  .custom-file-upload {
+      border: 1px solid #ccc;
+      display: inline-block;
+      padding: 6px 12px;
+      cursor: pointer;
+  }%>
+</style>
