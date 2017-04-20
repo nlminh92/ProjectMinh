@@ -15,7 +15,8 @@ test:
   database: monika
 
 production:
-   url: <%= ENV['DATABASE_URL'] %>
+  <<: *default
+  database: monika
 
 # default: &default
 #   adapter: sqlite3

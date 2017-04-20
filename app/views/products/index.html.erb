@@ -24,6 +24,7 @@
             <th>Sell Type</th>
             <th>Gender</th>
             <th>Status</th>
+            <th>View</th>
           </tr>
         </thead>
         <tbody>
@@ -35,6 +36,7 @@
             <td>Pre-Order</td>
             <td>Men</td>
             <td>Active</td>
+            <td><%= link_to "View", product_path(product.id) %></td>
           </tr>
         <% end %>
         </tbody>
