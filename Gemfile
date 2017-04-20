@@ -12,8 +12,8 @@ gem 'rails', '~> 5.0.1'
 gem 'carrierwave', '~> 1.0'
 
 group :development do
-	gem 'sqlite3'
-  # gem "mysql2", "~> 0.3.20"
+	# gem 'sqlite3'
+  gem 'mysql2', '~> 0.3.18'
 end
 
 group :production do
