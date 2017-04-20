@@ -12,9 +12,12 @@ gem 'rails', '~> 5.0.1'
 gem 'carrierwave', '~> 1.0'
 
 group :development do
-	# gem 'sqlite3'
-  gem "mysql2", "~> 0.3.20"
-  
+	gem 'sqlite3'
+  # gem "mysql2", "~> 0.3.20"
+end
+
+group :production do
+  gem 'pg', '0.18.4'
 end
 gem 'font-awesome-rails', '~> 4.6', '>= 4.6.3.1'
 gem 'puma', '~> 3.0'

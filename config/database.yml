@@ -1,22 +1,21 @@
-default: &default
-  adapter: mysql2
-  encoding: utf8
-  pool: 5
-  username: root
-  password: cubin1905
-  socket: /var/run/mysqld/mysqld.sock
+# default: &default
+#   adapter: mysql2
+#   encoding: utf8
+#   pool: 5
+#   username: root
+#   password: cubin1905
+#   socket: /var/run/mysqld/mysqld.sock
 
-development:
-  <<: *default
-  database: monika
+# development:
+#   <<: *default
+#   database: monika
 
-test:
-  <<: *default
-  database: monika
+# test:
+#   <<: *default
+#   database: monika
 
 production:
-  <<: *default
-  database: monika
+   url: <%= ENV['DATABASE_URL'] %>
 
 # default: &default
 #   adapter: sqlite3
