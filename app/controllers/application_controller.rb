@@ -34,11 +34,15 @@ class ApplicationController < ActionController::Base
    if params[:user][:type_user] == Settings.brand
      @brand = Brand.new(name: params[:user][:company])
      @brand.save
-     current_user.update_attributes(brand_id: @brand.id)
+     if current_user.present?
+        current_user.update_attributes(brand_id: @brand.id)
+      end
    elsif params[:user][:type_user] == Settings.retailler
-     @retailler = Brand.new(name: params[:user][:company])
+     @retailler = Retailler.new(name: params[:user][:company])
      @retailler.save
-     current_user.update_attributes(retailler_id: @retailler.id)
+     if current_user.present?
+       current_user.update_attributes(retailler_id: @retailler.id)
+      end
    end
   end
 

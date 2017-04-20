@@ -7,7 +7,7 @@
       <button type="button" class="btn btn-default">DOWNLOAD PRODUCT LIST</button>
     </div>
      <div class="col-md-3">
-      <%= link_to new_product_path do %>
+      <%= link_to new_product_path, data: {"turbolinks" => false}  do %>
         <button type="button" class="btn btn-primary">+ ADD NEW PRODUCT</button>
       <% end %>
     </div>
