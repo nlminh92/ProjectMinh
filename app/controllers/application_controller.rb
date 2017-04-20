@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
   include ApplicationHelper
-  protect_from_forgery with: :exception
+  protect_from_forgery with: :exception, 
+    if: Proc.new {|c| c.request.format != "application/json"}
+  protect_from_forgery with: :null_session, 
+    if: Proc.new {|c| c.request.format == "application/json"}
   before_action :configure_permitted_parameters, if: :devise_controller?
   after_action :create_brand, only: :create , if: :devise_controller?
 

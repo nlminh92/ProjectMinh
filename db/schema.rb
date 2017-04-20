@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20170401071117) do
     t.boolean  "status",                           default: false
     t.string   "image"
     t.string   "gender"
-    t.string   "type"
+    t.string   "supplier_sku"
     t.string   "type_sell"
     t.string   "code"
     t.string   "season"
