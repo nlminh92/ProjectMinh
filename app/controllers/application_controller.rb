@@ -23,6 +23,14 @@ class ApplicationController < ActionController::Base
     end
   end 
 
+  def admin
+    if current_user.activated && current_user.type_user == Settings.admin
+      return true
+    else
+      return false
+    end
+  end
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) do |user_params|
       user_params.permit(:email, :password, :password_confirmation, :type_user,:company,

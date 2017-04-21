@@ -23,11 +23,11 @@ module ApplicationHelper
     end
   end
 
-  def admin
-    if current_user.activated && current_user.type_user == Setting.admin
-      return true
-    else
-      return false
+  def flash_application flash
+    if flash.present?
+      flash.each do |message_type, message|
+        return content_tag :div, message, class: "alert alert-#{message_type}"
+      end
     end
   end
 
