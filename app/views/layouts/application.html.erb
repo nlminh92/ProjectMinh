@@ -23,6 +23,7 @@
   </head>
 
   <body style="padding-top: 0">
+    <%= flash_application flash %>
     <% if user_signin %>
       <div id="wrapper">
         <%= render "layout_login/header" %>
