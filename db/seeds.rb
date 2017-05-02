@@ -7,7 +7,7 @@ User.create(email: "admin@example.com", password: "12345678",
       description: "description", activated: 1, brand_id: brand.id)
 
 User.create(email: "user_1@example.com", password: "12345678",
-   password_confirmation: "12345678", type_user: 1,
+   password_confirmation: "12345678", type_user: 2,
       website: "example.com", address: "Viet Nam", zip_code: "10000",
       country: "VietNam", firstname_contact: "user_1", lastname_contact: "user_1", phone: "123424",
       description: "description", activated: 0, brand_id: brand.id)

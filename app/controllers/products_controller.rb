@@ -5,12 +5,19 @@ class ProductsController < ApplicationController
   skip_before_filter :verify_authenticity_token
   def index
     @products = Product.all
+    if params[:search]
+    @products = Product.search(params[:search]).order("created_at DESC")
+  else
+    @products = Product.all.order('created_at DESC')
   end
+  end
+
 
   def new
     @product_types = Producttype.all
     @sell_types = Selltype.all
   end
+
 
   def show
     @product = Product.find_by id: params[:id]
@@ -23,7 +30,11 @@ class ProductsController < ApplicationController
     @product.season = params[:session]
     @product.supplier_sku = params[:supplier_sku]
     @product.code = params[:code]
-
+    @product.price = params[:price]
+    @product.gender = params[:gender]
+    @product.season = params[:season]
+    @product.size = params[:size]
+    @product.description = params[:description]
 
     @product.save
     redirect_to @product

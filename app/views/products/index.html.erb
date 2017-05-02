@@ -11,9 +11,17 @@
         <button type="button" class="btn btn-primary">+ ADD NEW PRODUCT</button>
       <% end %>
     </div>
-    <div class="col-md-12">
+<!--     <div class="col-md-12">
       <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
-    </div>
+    </div> -->
+
+<div class="col-md-10">
+    <%= form_tag(products_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Products" %>
+    <%= submit_tag "Search" %>
+<% end %>
+</div>
+
     <div class="col-md-12">
       <table class="table">
         <thead>

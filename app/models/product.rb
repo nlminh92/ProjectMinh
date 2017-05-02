@@ -4,4 +4,11 @@ class Product < ApplicationRecord
   belongs_to :collection
 
   mount_uploader :image, ImageUploader
+
+
+
+def self.search(search)
+  where("gender LIKE ?", "%#{search}%") 
+  where("name_products LIKE ?", "%#{search}%")
+end
 end
