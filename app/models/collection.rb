@@ -4,4 +4,9 @@ class Collection < ApplicationRecord
   has_many :product
 
   mount_uploader :image, ImageUploader
+
+def self.search(search)
+  where("status LIKE ?", "%#{search}%") 
+end
+
 end

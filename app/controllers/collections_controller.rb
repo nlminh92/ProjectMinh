@@ -6,6 +6,11 @@ class CollectionsController < ApplicationController
 
   def index
     @collections = Collection.all
+    if params[:search]
+    @collectionss = Collection.search(params[:search]).order("created_at DESC")
+  else
+    @collections = Collection.all.order('created_at DESC')
+  end
   end
 
   def show

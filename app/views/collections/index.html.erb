@@ -8,12 +8,19 @@
         <button type="button" class="btn btn-primary">+ ADD NEW COLLECTIONS</button>
       <% end %>
     </div>
+
+<div class="col-md-10">
+    <%= form_tag(collections_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Collections" %>
+    <%= submit_tag "Search" %>
+<% end %>
+</div>
     <div class="col-md-12">
       <table class="table">
         <thead>
           <tr>
             <th>Collection ID</th>
-            <th>Collection image</th>
+            <th>Collection Image</th>
             <th>Collection Name</th>
             <th>Products</th>
             <th>Status</th>
