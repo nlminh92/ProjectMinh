@@ -1,52 +1,110 @@
-<div class="signup">
 <%= render 'homepage/header' %>
-</div>
-<div class="container body-wrapper">
-  <div class="box-container box-middle box-space-around box-row-wrap">
-    <div class="box-md-50 box-sm-80 box-xs-100">
-      <div class="text-center">
-        <h3 class="title">Log in</h3>
-      </div>
 
-      <div class="panel panel-default box-xs-100">
-        <div class="panel-body panel-body-custom">
-          <div>
-            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<div id="fullscreen_bg" class="fullscreen_bg"/>
+</br>
+</br>
+</br>
+<form class="form-signin">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-1">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h3 class="text-center">
+              SIGN IN</h3>
 
-              <div class="form-group margin-bottom-15px">
-                <%= f.label :email %>:
-                <%= f.email_field :email, class: "form-control",
-                  placeholder: true, autofocus: true, required: true %>
+              <div class="panel panel-default box-xs-100">
+                <div class="panel-body panel-body-custom">
+                  <div>
+                    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+                    <div class="form-group margin-bottom-15px">
+                      <%= f.label :email %>:
+                      <%= f.email_field :email, class: "form-control",
+                      placeholder: true, autofocus: true, required: true %>
+                    </div>
+
+                    <div class="form-group margin-bottom-15px">
+                      <%= f.label :password %>:
+                      <%= f.password_field :password, class: "form-control",
+                      placeholder: true, required: true %>
+                    </div>
+
+                    <div class="margin-bottom-15px">
+                      <%= f.check_box :remember_me %>
+                      <%= f.label :remember_me %>
+                    </div>
+
+                    <div class="form-group">
+                      <%= f.submit "Log in", class: "btn btn-success btn-block" %>
+                    </div>
+
+                    <% end %>
+                  </div>
+                </div>
               </div>
 
-              <div class="form-group margin-bottom-15px">
-                <%= f.label :password %>:
-                <%= f.password_field :password, class: "form-control",
-                  placeholder: true, required: true %>
+              <div class="panel panel-default box-xs-100">
+                <div class="panel-body">
+                  <div class="text-center">
+                    <span> <%= t "Not registered?" %></span><br>
+                    <%= render "devise/shared/links" %>
+                  </div>
+                </div>
               </div>
 
-              <div class="margin-bottom-15px">
-                <%= f.check_box :remember_me %>
-                <%= f.label :remember_me %>
-              </div>
-
-              <div class="form-group">
-                <%= f.submit "Log in", class: "btn btn-success btn-block" %>
-              </div>
-
-            <% end %>
+            </div>
           </div>
         </div>
       </div>
-
-      <div class="panel panel-default box-xs-100">
-        <div class="panel-body">
-          <div class="text-center">
-            <span> <%= t "Not registered?" %></span><br>
-              <%= render "devise/shared/links" %>
-          </div>
-        </div>
-      </div>
-    </div>
+    </form>
   </div>
-</div>
+
+
+
+<style>
+/*body
+{
+    background-color: #1b1b1b;
+    padding-top: 40px;
+}*/
+.form-signin {
+    max-width: 200px;
+    padding: 15px;
+    margin: 10px;
+    margin-top: 40px;
+  }
+
+/*.input-group-addon
+{
+    background-color: rgb(50, 118, 177);
+    border-color: rgb(40, 94, 142);
+    color: rgb(255, 255, 255);
+}
+.form-control:focus
+{
+    background-color: rgb(50, 118, 177);
+    border-color: rgb(40, 94, 142);
+    color: rgb(255, 255, 255);
+}
+.panel-default {
+opacity: 0.8;
+/*margin-top:30px;*/
+}*/
+.form-signup input[type="text"],.form-signup input[type="password"] { border: 1px solid rgb(50, 118, 177); }
+.fullscreen_bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-size: cover;
+    background-position: 10% 10%;
+    background-image: url('http://www.wallpaperup.com/uploads/wallpapers/2012/08/30/12087/3574f899daef41d2f145eba13ff7840f.jpg');
+    background-repeat:repeat;
+  }
+.panel-default {
+opacity: 0.9;
+/*margin-top:30px;*/
+}
+</style>
