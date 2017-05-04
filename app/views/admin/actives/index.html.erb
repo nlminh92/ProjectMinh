@@ -1,0 +1,59 @@
+<div id="page-wrapper">
+  <form action="/admin/actives" method="POST">
+    <div class="row" style="margin-top: 20px;">
+      <div class="col-md-2">
+        <h4>COLLECTIONS</h4>
+      </div>
+      <div class="col-md-3 col-md-offset-7">
+        <button type="submit" class="btn btn-primary">+ ACTIVE USER</button>
+      </div>
+      <div class="col-md-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>User ID</th>
+              <th>User avatar</th>
+              <th>User Email</th>
+              <th>Company</th>
+              <th>Website</th>
+              <th>Type</th>
+              <th>Active</th>
+              <th>Not active</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @users.each do |user| %>
+                <tr>
+                  <td><%= user.id %></td>
+                  <td><img src="/img/user.jpg" alt="" class="image-product"></td>
+                  <td><%= user.email %></td>
+                  <td><%= user.company %></td>
+                  <td><%= user.website %></td>
+                  <% if user.type_user == 0 %>
+                    <td>Brand</td>
+                  <% else %>
+                    <td>Retailler</td>
+                  <% end %>
+                  <% if user.activated %>
+                    <% @active = 'checked' %>
+                    <% @notactive = '' %>
+                  <% else %>
+                    <% @active = '' %>
+                    <% @notactive = 'checked' %>
+                  <% end %>
+                  <td><label><input type="radio" value="1" name="user_<%= user.id %>" <%= @active %>>Active</label></td>
+                  <td><label><input type="radio" value="0" name="user_<%= user.id %>" <%= @notactive %>>Not Active</label></td>
+                </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </form>
+</div>
+<style>
+.image-product {
+  width: 100px;
+  height: 100px;
+}
+</style>

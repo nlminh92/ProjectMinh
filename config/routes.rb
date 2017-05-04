@@ -4,16 +4,20 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
 
- root "homepage#index"
- resources :homes
- resources :dashboards
- resources :products
- resources :collections
- get 'products/new'
- resources :brands
- get 'brands/index'
- resources :retailers
- get 'retailers/index'
- resources :blogs
- get 'blogs/index'
+  root "homepage#index"
+  resources :homes
+  resources :dashboards
+  resources :products
+  resources :collections
+  get 'products/new'
+  resources :brands
+  get 'brands/index'
+  resources :retailers
+  get 'retailers/index'
+  resources :blogs
+  get 'blogs/index'
+
+  namespace :admin do
+    resources :actives
+  end
 end
