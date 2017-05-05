@@ -10,11 +10,13 @@ gem 'devise', '4.0'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'rails', '~> 5.0.1'
 gem 'carrierwave', '~> 1.0'
-gem 'sqlite3'
 
 group :test, :development do
 	gem 'sqlite3'
   # gem "mysql2", "~> 0.3.20"  
+end
+group :production do
+  gem 'pg'
 end
 
 gem 'font-awesome-rails', '~> 4.6', '>= 4.6.3.1'
