@@ -1,11 +1,15 @@
 class ApplicationController < ActionController::Base
   include ApplicationHelper
-  protect_from_forgery with: :exception, 
+  protect_from_forgery with: :exception,
     if: Proc.new {|c| c.request.format != "application/json"}
-  protect_from_forgery with: :null_session, 
+  protect_from_forgery with: :null_session,
     if: Proc.new {|c| c.request.format == "application/json"}
   before_action :configure_permitted_parameters, if: :devise_controller?
   after_action :create_brand, only: :create , if: :devise_controller?
+
+  def after_sign_in_path_for(resource)
+    homes_path
+  end
 
   protected
 
@@ -21,7 +25,7 @@ class ApplicationController < ActionController::Base
     unless current_user.activated
       redirect_to homes_path
     end
-  end 
+  end
 
   def admin
     if current_user.activated && current_user.type_user == Settings.admin
@@ -35,7 +39,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up) do |user_params|
       user_params.permit(:email, :password, :password_confirmation, :type_user,:company,
       :website, :address, :zip_code, :country, :firstname_contact, :lastname_contact, :phone, :description)
-    end 
+    end
   end
 
   def create_brand

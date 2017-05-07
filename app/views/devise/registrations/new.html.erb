@@ -2,7 +2,6 @@
 <div class="container auth">
     <h1 class="text-center">Register for free <span>Fill the simple form below and our team will contact you within 48 hours.</span> </h1>
     <div id="big-form" class="well auth-box">
-      <form>
         <fieldset>
 
           <!-- Form Name -->
@@ -60,12 +59,12 @@
                 <%= f.label :Country %><br />
                 <%= f.text_field :country, autofocus: true, class: "form-control",  placeholder: true %>
               </div>
-              
+
               <div class="form-group margin-bottom-15px">
                 <%= f.label :first_name_contact %><br />
                 <%= f.text_field :firstname_contact, autofocus: true, class: "form-control",  placeholder: true %>
               </div>
-              
+
               <div class="form-group margin-bottom-15px">
                 <%= f.label :last_name_contact %><br />
                 <%= f.text_field :lastname_contact, autofocus: true, class: "form-control",  placeholder: true %>
@@ -79,7 +78,7 @@
               <div class="form-group margin-bottom-15px">
                 <%= f.label :Description %><br />
                 <%= f.text_area :description, autofocus: true, class: "form-control",  placeholder: true %>
-              </div>   
+              </div>
 
               <div class="margin-bottom-15px">
                 <%= f.check_box :remember_me %>
@@ -102,7 +101,6 @@
  -->      </div>
 
         </fieldset>
-      </form>
     </div>
     <div class="clearfix"></div>
   </div>
@@ -119,7 +117,7 @@
 body{
   background:url('http://www.wallpaperup.com/uploads/wallpapers/2012/08/30/12087/3574f899daef41d2f145eba13ff7840f.jpg');
   background-size:100% 100%;
-  background-attachment: fixed; 
+  background-attachment: fixed;
   background-repeat:no-repeat;
   font-family: 'Open Sans', sans-serif;
   padding-bottom: 40px;
@@ -223,7 +221,7 @@ body{
 .auth label.radio-inline,
 .auth .checkbox label,
 .auth label.checkbox-inline{
-    font-size: 14px;    
+    font-size: 14px;
 }
 
 .auth form .help-block{
@@ -241,7 +239,7 @@ body{
     color:#000;
 }
 /*multiple select*/
-.auth select[multiple] option, 
+.auth select[multiple] option,
 .auth select[size] {
   color:#fff!important;
 }
@@ -307,5 +305,5 @@ $(document).ready(function(){
   $('a, button').click(function(e){
     e.preventDefault();
   });
-}); 
+});
 </script>
