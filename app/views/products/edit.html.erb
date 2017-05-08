@@ -1,0 +1,154 @@
+<script type="text/javascript">
+  var active = <%= @product.active %>;
+  var size = [<%= raw @size.to_json %>];
+  $(document).ready(function() {
+    $('input[value="S"]').checked = true;
+  });
+  for(var i = 0; i < size[0].length; i++) {
+    var tmp = "input[type=checkbox][value=" + size[0][i] +"]";
+    console.log(tmp);
+    // $(tmp).prop("checked",true);​​
+  }
+
+</script>
+
+<div id="page-wrapper">
+<%= form_tag({controller: "/products", action: "update"}, method: "put", class: "form-horizontal form-label-left form") do %>
+  <div class="row" style="border-bottom: 1px solid black;">
+    <div class="col-md-8" style="border-right: 1px solid black;">
+      <div class="col-md-6">
+        <h4>EDIT PRODUCT</h4>
+      </div>
+      <div class="col-md-3">
+        <h5>Product Status</h5>
+      </div>
+      <div class="col-md-3">
+        <label for="style_code">Active:</label>
+        <input id="active_event" type="checkbox" name="active_product">
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="col-md-6">
+        <button class="btn btn-default" type="reset" name="reset">CANCEL</button>
+      </div>
+      <div class="col-md-6">
+        <button class="btn btn-success" id="send" type="submit">CREATE</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <h4>IMAGE UPLOAD</h4>
+      <%#<label for="file-upload" class="custom-file-upload">
+          <i class="fa fa-cloud-upload"></i> Upload Image
+      </label>%>
+      <input id="file-upload" type="file" name="image"/>
+    </div>
+    <div class="col-md-8" style="border-left: 1px solid black; padding-left: 60px;">
+      <div class="col-md-12">
+        <h4>BASIC INFORMATION</h4>
+      </div>
+      <div class="form-group">
+        <label for="style_code">Style Code:</label>
+        <input type="text" class="form-control" id="style_code" name="code" value="<%= @product.code %>">
+      </div>
+      <div class="form-group">
+        <label for="product_name">Product Name:</label>
+        <input type="text" class="form-control" id="product_name" name="name_products" value="<%= @product.name_products %>">
+      </div>
+      <div class="form-group">
+        <label for="gender">Gender:</label> <br/>
+        <label class="checkbox-inline">
+          <input type="checkbox" value="Men" name="gender[]">Men
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" value="Women" name="gender[]">Women
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" value="Kids" name="gender[]">Kids
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-12" for="product_type">Product Type</label>
+        <% @product_types.each do |product_type| %>
+          <label class="col-md-6">
+            <input type="radio" value=<%= product_type.name %> name="product_type"> <%= product_type.name %>
+          </label>
+        <% end %>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-12" for="sell_type">Sell Type</label>
+        <% @sell_types.each do |sell_type| %>
+          <label class="col-md-6">
+            <input type="radio" value=<%= sell_type.name %> name="type_sell"> <%= sell_type.name %>
+          </label>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="row" style="margin-bottom: 20px;">
+      <div class="col-md-12" style="border-top: 1px solid black;">
+        <h4>DESCRIPTIVE INFORMATION</h4>
+      </div>
+      <div class="col-md-12">
+        <div class="col-md-3 ">
+          <label for="supplier_sku">Supplier SKU</label>
+          <input type="text" class="form-control" id="supplier_sku" name="supplier_sku"value="<%= @product.supplier_sku %>">
+        </div>
+        <div class="col-md-3 col-md-offset-1 ">
+          <label for="season">Season</label>
+          <input type="text" class="form-control" id="season" name="season" value="<%= @product.season %>">
+        </div>
+        <div class="col-md-3 col-md-offset-1 ">
+          <label for="product_fit">Product Fit</label>
+          <input type="text" class="form-control" id="product_fit" name="product_fit" value="<%#= @product.product_fit %>">
+        </div>
+      </div>
+    </div>
+
+    <input type="hidden" value="1" id="active_product" name="active_product">
+
+    <div class="row" style="margin-bottom: 20px;">
+      <div class="col-md-12" style="border-top: 1px solid black;">
+        <h4>Size</h4>
+      </div>
+        <label class="checkbox-inline">
+          <input type="checkbox" value="S" name="size[]">S
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" value="M" name="size[]">M
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" value="L" name="size[]">L
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" value="Xl" name="size[]">XL
+        </label>
+
+    </div>
+
+    <div class="row" style="margin-bottom: 20px;">
+      <div class="col-md-12" style="border-top: 1px solid black;">
+        <h4>PRICING AND INVENTORY INFORMATION</h4>
+      </div>
+      <div class="col-md-12">
+        <div class="col-md-3 ">
+          <label for="price">EURO</label>
+          <input type="text" class="form-control" id="price" name="price" value="<%= @product.price %>">
+        </div>
+    </div>
+    </div>
+
+    <div class="row" style="margin-bottom: 20px;">
+      <div class="col-md-12" style="border-top: 1px solid black;">
+        <h4>DESCRIPTION</h4>
+      </div>
+        <textarea class="form-control" rows="5" id="comment" name="description"><%= @product.description %></textarea>
+    </div>
+    </div>
+  <% end %>
+</div>
