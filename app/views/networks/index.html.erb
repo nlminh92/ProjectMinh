@@ -1,0 +1,109 @@
+<div id="page-wrapper">
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Connected Follower</a></li>
+    <li><a data-toggle="tab" href="#menu">Connected Following</a></li>
+    <li><a data-toggle="tab" href="#menu1">Connecting</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <div class="col-md-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Logo</th>
+              <th>Name</th>
+              <th>Connect</th>
+              <th>View</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @connected.each do |connect| %>
+                <tr>
+                  <td><%= connect.id %></td>
+                  <% if connect.brand_following.logo.blank? %>
+                    <td><img src="/img/logo.png" alt="" class="image-product"></td>
+                  <% else %>
+                    <td><img src="<%= connect.brand_following.logo %>" alt="" class="image-product"></td>
+                  <% end %>
+                  <td><%= connect.brand_following.name %></td>
+                  <td>Connected</td>
+                  <td><%= link_to "View", profile_path(connect.brand_following.id) %></td>
+                </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+     <div id="menu" class="tab-pane fade in active">
+      <div class="col-md-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Logo</th>
+              <th>Name</th>
+              <th>Connect</th>
+              <th>View</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @connecter.each do |connect| %>
+                <tr>
+                  <td><%= connect.id %></td>
+                  <% if connect.brand_follow.logo.blank? %>
+                    <td><img src="/img/logo.png" alt="" class="image-product"></td>
+                  <% else %>
+                    <td><img src="<%= connect.brand_follow.logo %>" alt="" class="image-product"></td>
+                  <% end %>
+                  <td><%= connect.brand_follow.name %></td>
+                  <td>Connected</td>
+                  <td><%= link_to "View", profile_path(connect.brand_follow.id) %></td>
+                </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+    <div id="menu1" class="tab-pane fade">
+      <div class="col-md-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Logo</th>
+              <th>Name</th>
+              <th>Connect</th>
+              <th>View</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @connecting.each do |connect| %>
+                <tr>
+                  <td><%= connect.id %></td>
+                  <% if connect.brand_following.logo.blank? %>
+                    <td><img src="/img/logo.png" alt="" class="image-product"></td>
+                  <% else %>
+                    <td><img src="<%= connect.brand_following.logo %>" alt="" class="image-product"></td>
+                  <% end %>
+                  <td><%= connect.brand_following.name %></td>
+                  <td>Connecting</td>
+                  <td><%= link_to "View", profile_path(connect.brand_following.id) %></td>
+                </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+.image-product {
+  width: 100px;
+  height: 100px;
+}
+</style>

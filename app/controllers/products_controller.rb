@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
     if current_user.type_user = Settings.brand
       @products_index = Product.where(brand_id: current_user.brand.id)
     elsif current_user.type_user = Settings.retailler
-      @products_index = Product.where(retailler_id: current_user.retailler.id)
+      @products_index = Product.where(brand_id: current_user.brand.id)
     end
     if params[:search]
       @products = Product.search(params[:search]).order("created_at DESC")
@@ -45,7 +45,7 @@ class ProductsController < ApplicationController
     if current_user.type_user = Settings.brand
       @product.brand_id = current_user.brand.id
     elsif current_user.type_user = Settings.retailler
-      @product.retailler_id = current_user.retailler.id
+      @product.brand_id = current_user.brand.id
     end
     @product.type_sell =  params[:sell_type]
     @product.active = params[:active_product]

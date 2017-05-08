@@ -1,0 +1,47 @@
+<form action="/active_networks" method="POST">
+<div id="page-wrapper">
+  <div class="row" style="margin-top: 20px;">
+    <div class="col-md-2">
+      <h4>RETAILERS</h4>
+    </div>
+    <div class="col-md-3 col-md-offset-7">
+      <button type="submit" class="btn btn-primary">+ ACCEPT CONNECT</button>
+    </div>
+</div>
+    <div class="col-md-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Logo</th>
+            <th>Name</th>
+            <th>Connect</th>
+            <th>View</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @actives.each do |active| %>
+              <tr>
+                <td><%= active.id %></td>
+                <% if active.brand_follow.logo.blank? %>
+                  <td><img src="/img/logo.png" alt="" class="image-product"></td>
+                <% else %>
+                  <td><img src="<%= active.brand_follow.logo %>" alt="" class="image-product"></td>
+                <% end %>
+                <td><%= active.brand_follow.name %></td>
+                <td><input type="checkbox" value="<%= active.id %>" name="active[]">Connecting</td>
+                <td><%= link_to "View", profile_path(active.brand_follow.id) %></td>
+              </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</form>
+<style>
+.image-product {
+  width: 100px;
+  height: 100px;
+}
+</style>
