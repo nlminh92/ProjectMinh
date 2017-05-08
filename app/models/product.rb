@@ -7,8 +7,8 @@ class Product < ApplicationRecord
 
 
 
-def self.search(search)
-  where("name_products LIKE ?", "%#{search}%")
-  where("code LIKE ?", "%#{search}%")
-end
+  def self.search(search)
+    where("name_products LIKE ?", "%#{search}%")
+    where("code LIKE ?", "%#{search}%")
+  end
 end

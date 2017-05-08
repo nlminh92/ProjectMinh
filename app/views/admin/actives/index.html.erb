@@ -25,7 +25,11 @@
             <% @users.each do |user| %>
                 <tr>
                   <td><%= user.id %></td>
-                  <td><img src="/img/user.jpg" alt="" class="image-product"></td>
+                  <% unless user.avatar.blank? %>
+                    <td><img src="<%= user.avatar %>" alt="" class="image-product"></td>
+                  <% else %>
+                    <td><img src="/img/user.jpg" alt="" class="image-product"></td>
+                  <% end %>
                   <td><%= user.email %></td>
                   <td><%= user.company %></td>
                   <td><%= user.website %></td>
