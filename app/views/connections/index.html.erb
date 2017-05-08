@@ -1,0 +1,47 @@
+<form action="/connections" method="POST">
+<div id="page-wrapper">
+  <div class="row" style="margin-top: 20px;">
+    <div class="col-md-2">
+      <h4>RETAILERS</h4>
+    </div>
+    <div class="col-md-3 col-md-offset-7">
+      <button type="submit" class="btn btn-primary">+ CONNECT</button>
+    </div>
+</div>
+    <div class="col-md-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Logo</th>
+            <th>Name</th>
+            <th>Connect</th>
+            <th>View</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @brand.each do |brand| %>
+              <tr>
+                <td><%= brand.id %></td>
+                <% if brand.logo.blank? %>
+                  <td><img src="/img/logo.png" alt="" class="image-product"></td>
+                <% else %>
+                  <td><img src="<%= brand.logo %>" alt="" class="image-product"></td>
+                <% end %>
+                <td><%= brand.name %></td>
+                <td><input type="checkbox" value="<%= brand.id %>" name="brand[]">Connect</td>
+                <td><%= link_to "View", profile_path(brand.id) %></td>
+              </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</form>
+<style>
+.image-product {
+  width: 100px;
+  height: 100px;
+}
+</style>

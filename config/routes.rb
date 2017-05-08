@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   resources :blogs
   get 'blogs/index'
   resources :profiles
+  resources :connections
+  resources :networks
+  resources :active_networks
 
   namespace :admin do
     resources :actives

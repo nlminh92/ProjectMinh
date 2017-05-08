@@ -1,0 +1,26 @@
+<div id="page-wrapper">
+  <div class="row" style="margin-top: 20px; border-bottom: 1px solid black;">
+    <div class="col-md-2">
+      <h4>PROFILE</h4>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 30px;">
+    <div class="col-md-5" style="border-right: 1px solid black; height: 70vh;">
+      <% if @profile.logo.blank? %>
+        <img src="/img/logo.png" alt="" style="width: 100%; height: auto;">
+      <% else %>
+        <img src="<%= @profile.logo %>" alt="" style="width: 100%; height: auto;">
+      <% end %>
+    </div>
+    <div class="col-md-7" style="padding-left:20px;">
+      <h4 style="color:red;">Name:</h4>
+      <p style="font-size:18px; padding-left:20px;"><%= @profile.name %></p>
+      <h4 style="color:red;">Description:</h4>
+      <p style="font-size:18px; padding-left:20px;"><%= @profile.description %></p>
+      <h4 style="color:red;">Facebook:</h4>
+      <p style="font-size:18px; padding-left:20px;"><%= @profile.facebook %></p>
+      <h4 style="color:red;">Instagram:</h4>
+      <p style="font-size:18px; padding-left:20px;"><%= @profile.instagram %></p>
+    </div>
+  </div>
+</div>

@@ -3,15 +3,19 @@ class ProfilesController < ApplicationController
     if current_user.type_user = Settings.brand
       @profile = current_user.brand
     elsif current_user.type_user = Settings.retailler
-      @profile = current_user.retailler
+      @profile = current_user.brand
     end
+  end
+
+  def show
+    @profile = Brand.find_by(id: params[:id])
   end
 
   def edit
     if current_user.type_user = Settings.brand
       @profile = current_user.brand
     elsif current_user.type_user = Settings.retailler
-      @profile = current_user.retailler
+      @profile = current_user.brand
     end
   end
 
@@ -19,7 +23,7 @@ class ProfilesController < ApplicationController
     if current_user.type_user = Settings.brand
       @profile = current_user.brand
     elsif current_user.type_user = Settings.retailler
-      @profile = current_user.retailler
+      @profile = current_user.brand
     end
     @profile.update_attributes(profile_params)
     redirect_to profiles_path
