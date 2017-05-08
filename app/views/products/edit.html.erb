@@ -13,7 +13,7 @@
 </script>
 
 <div id="page-wrapper">
-<%= form_tag({controller: "/products", action: "update"}, method: "put", class: "form-horizontal form-label-left form") do %>
+<%= form_tag({controller: "/products", action: "update"}, method: "put", multipart: true, class: "form-horizontal form-label-left form") do %>
   <div class="row" style="border-bottom: 1px solid black;">
     <div class="col-md-8" style="border-right: 1px solid black;">
       <div class="col-md-6">
