@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
  	belongs_to :brand
  	belongs_to :retailler
+  mount_uploader :avatar, ImageUploader
 end
