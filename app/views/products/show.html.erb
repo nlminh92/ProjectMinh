@@ -4,10 +4,14 @@
       <h4>PRODUCTS</h4>
     </div>
     <div class="col-md-4 col-md-offset-2">
-      <p style="font-size:18px;">Product Status:    Active</p>
+      <% if @product.active %>
+        <p style="font-size:18px;">Product Status:    Active</p>
+      <% else %>
+        <p style="font-size:18px;">Product Status:    InActive</p>
+      <% end %>
     </div>
     <div class="col-md-3 col-md-offset-1">
-      <%= link_to new_product_path do %>
+      <%= link_to edit_product_path(@product.id) do %>
         <button type="button" class="btn btn-primary">+ EDIT PRODUCT</button>
       <% end %>
     </div>
@@ -18,14 +22,20 @@
     </div>
     <div class="col-md-7" style="padding-left:20px;">
       <h4 style="color:red;">Name products</h4>
-      <p style="font-size:18px; padding-left:20px;"><%= @product.name_products %></>
+      <p style="font-size:18px; padding-left:20px;"><%= @product.name_products %></p>
       <h4 style="color:red;">Style Code: </h4>
-      <p style="font-size:18px; padding-left:20px;"><%= @product.code %></>
+      <p style="font-size:18px; padding-left:20px;"><%= @product.code %></p>
       <h4 style="color:red;">Sell Type:</h4>
-      <p style="font-size:18px; padding-left:20px;">Pre-Order</>
-      <h4 style="color:red;">Price: <p style="font-size:18px; padding-left:20px;"><%= @product.price %> euro</></h4>
-      
-      <button type="button" class="btn btn-primary" style="margin-left:70px; margin-top:40px;">VIEW COLOR AND SIZE</button>
+      <p style="font-size:18px; padding-left:20px;"><%= @product.type_sell %></p>
+      <h4 style="color:red;">Price: </h4>
+      <p style="font-size:18px; padding-left:20px;"><%= @product.price %> euro</p>
+      <h4 style="color:red;">Gender: </h4>
+      <p style="font-size:18px; padding-left:20px;"><%= @product.gender.gsub("[", "").gsub("]", "") %></p>
+      <h4 style="color:red;">Size: </h4>
+      <p style="font-size:18px; padding-left:20px;"><%= @product.size.gsub("[", "").gsub("]", "") %></p>
+      <h4 style="color:red;">Description: </h4>
+      <p style="font-size:18px; padding-left:20px;"><%= @product.description %></p>
+
     </div>
   </div>
 </div>

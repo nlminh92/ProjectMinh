@@ -41,9 +41,13 @@
             <td><img src="<%= product.image %>" class="image-product"></td>
             <td><%= product.name_products %></td>
             <td><%= product.code %></td>
-            <td>Pre-Order</td>
-            <td>Men</td>
-            <td>Active</td>
+            <td><%= product.type_sell %></td>
+            <td><%= product.gender.gsub!("[", "").gsub!("]", "") %></td>
+            <% if product.active %>
+              <td>Active</td>
+            <% else %>
+              <td>InActive</td>
+            <% end %>
             <td><%= link_to "View", product_path(product.id) %></td>
           </tr>
         <% end %>

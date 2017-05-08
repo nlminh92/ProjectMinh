@@ -10,12 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170508135751) do
+ActiveRecord::Schema.define(version: 20170508161910) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.string   "logo"
+    t.text     "description", limit: 65535
+    t.string   "facebook"
+    t.string   "instagram"
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -67,6 +71,7 @@ ActiveRecord::Schema.define(version: 20170508135751) do
     t.integer  "collection_id"
     t.datetime "created_at",                                       null: false
     t.datetime "updated_at",                                       null: false
+    t.boolean  "active"
     t.index ["brand_id"], name: "index_products_on_brand_id", using: :btree
     t.index ["collection_id"], name: "index_products_on_collection_id", using: :btree
     t.index ["retailler_id"], name: "index_products_on_retailler_id", using: :btree
@@ -80,8 +85,12 @@ ActiveRecord::Schema.define(version: 20170508135751) do
 
   create_table "retaillers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.string   "logo"
+    t.text     "description", limit: 65535
+    t.string   "facebook"
+    t.string   "instagram"
   end
 
   create_table "selltypes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
