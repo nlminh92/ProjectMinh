@@ -1,3 +1,4 @@
 class Retailler < ApplicationRecord
-  belongs_to :user
+  has_one :user
+  mount_uploader :logo, ImageUploader
 end

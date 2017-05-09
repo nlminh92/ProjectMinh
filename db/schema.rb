@@ -10,12 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170401071117) do
+ActiveRecord::Schema.define(version: 20170508181246) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.string   "logo"
+    t.text     "description", limit: 65535
+    t.string   "facebook"
+    t.string   "instagram"
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -37,6 +41,14 @@ ActiveRecord::Schema.define(version: 20170401071117) do
     t.datetime "updated_at",                                      null: false
     t.index ["brand_id"], name: "index_collections_on_brand_id", using: :btree
     t.index ["retailler_id"], name: "index_collections_on_retailler_id", using: :btree
+  end
+
+  create_table "connections", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "brand_follow_id"
+    t.integer  "brand_following_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.boolean  "status"
   end
 
   create_table "countries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -67,6 +79,7 @@ ActiveRecord::Schema.define(version: 20170401071117) do
     t.integer  "collection_id"
     t.datetime "created_at",                                       null: false
     t.datetime "updated_at",                                       null: false
+    t.boolean  "active"
     t.index ["brand_id"], name: "index_products_on_brand_id", using: :btree
     t.index ["collection_id"], name: "index_products_on_collection_id", using: :btree
     t.index ["retailler_id"], name: "index_products_on_retailler_id", using: :btree
@@ -80,8 +93,12 @@ ActiveRecord::Schema.define(version: 20170401071117) do
 
   create_table "retaillers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.string   "logo"
+    t.text     "description", limit: 65535
+    t.string   "facebook"
+    t.string   "instagram"
   end
 
   create_table "selltypes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -118,6 +135,7 @@ ActiveRecord::Schema.define(version: 20170401071117) do
     t.integer  "type_user",                            default: 0
     t.integer  "brand_id"
     t.integer  "retailler_id"
+    t.string   "avatar"
     t.index ["brand_id"], name: "index_users_on_brand_id", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree

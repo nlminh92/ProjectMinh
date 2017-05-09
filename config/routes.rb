@@ -16,6 +16,10 @@ Rails.application.routes.draw do
   get 'retailers/index'
   resources :blogs
   get 'blogs/index'
+  resources :profiles
+  resources :connections
+  resources :networks
+  resources :active_networks
 
   namespace :admin do
     resources :actives

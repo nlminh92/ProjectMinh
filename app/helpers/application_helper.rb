@@ -31,4 +31,15 @@ module ApplicationHelper
     end
   end
 
+  def checked array, value
+    check = false
+    array.each do |i|
+      if i == value
+        check = true
+        break
+      end
+    end
+    check
+  end
+
 end

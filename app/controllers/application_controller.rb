@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) do |user_params|
       user_params.permit(:email, :password, :password_confirmation, :type_user,:company,
-      :website, :address, :zip_code, :country, :firstname_contact, :lastname_contact, :phone, :description)
+      :website, :address, :zip_code, :country, :firstname_contact, :lastname_contact, :phone, :description, :avatar)
     end
   end
 
@@ -50,10 +50,10 @@ class ApplicationController < ActionController::Base
         current_user.update_attributes(brand_id: @brand.id)
       end
    elsif params[:user][:type_user] == Settings.retailler
-     @retailler = Retailler.new(name: params[:user][:company])
-     @retailler.save
+     @brand = Brand.new(name: params[:user][:company])
+     @brand.save
      if current_user.present?
-       current_user.update_attributes(retailler_id: @retailler.id)
+       current_user.update_attributes(brand_id: @brand.id)
       end
    end
   end
