@@ -16,10 +16,16 @@ Rails.application.routes.draw do
   get 'retailers/index'
   resources :blogs
   get 'blogs/index'
+  resources :contacts
+  get 'contacts/index'
   resources :profiles
   resources :connections
   resources :networks
   resources :active_networks
+
+#   devise_for :users, :controllers => {
+#   sessions: 'user/sessions'
+# }
 
   namespace :admin do
     resources :actives
