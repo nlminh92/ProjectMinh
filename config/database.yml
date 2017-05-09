@@ -1,9 +1,12 @@
+#C9
+
+
 # default: &default
 #   adapter: mysql2
 #   encoding: utf8
 #   pool: 5
 #   username: <%=ENV['C9_USER']%>
-#   password: 
+#   password:
 #   host: <%=ENV['IP']%>
 
 # development:
@@ -18,25 +21,7 @@
 #   <<: *default
 #   database: monika2
 
-# default: &default
-#   adapter: mysql2
-#   encoding: utf8
-#   pool: 5
-#   username: root
-#   password: cubin1905
-#   socket: /var/run/mysqld/mysqld.sock
-
-# development:
-#   <<: *default
-#   database: monika
-
-# test:
-#   <<: *default
-#   database: monika
-
-# production:
-#   <<: *default
-#   database: monika
+#mysql
 
 # default: &default
 #   adapter: postgresql
@@ -58,6 +43,42 @@
 #   <<: *default
 #   database: project_production #db/production.sqlite3
 
+# default: &default
+# <<<<<<< HEAD
+#   adapter: sqlite3
+# =======
+#   adapter: mysql2
+#   encoding: utf8
+# >>>>>>> ed2535f23366982a4176431b990ff74851ed7244
+#   pool: 5
+#   username: root
+#   password: cubin1905
+#   socket: /var/run/mysqld/mysqld.sock
+
+# development:
+#   <<: *default
+# <<<<<<< HEAD
+#   database: db/development.sqlite3
+# =======
+#   database: monika
+# >>>>>>> ed2535f23366982a4176431b990ff74851ed7244
+
+# test:
+#   <<: *default
+# <<<<<<< HEAD
+#   database: db/test.sqlite3
+
+# production:
+#   <<: *default
+#   database: db/production.sqlite3
+# =======
+#   database: monika
+
+# production:
+#   <<: *default
+#   database: monika
+
+
 default: &default
   adapter: sqlite3
   pool: 5
@@ -77,3 +98,27 @@ test:
 production:
   <<: *default
   database: db/production.sqlite3
+
+
+#sqlite
+
+# default: &default
+#   adapter: postgresql
+#   pool: 5
+#   timeout: 5000
+
+# development:
+#   <<: *default
+#   database: project_development #db/development.sqlite3
+
+# # Warning: The database defined as "test" will be erased and
+# # re-generated from your development database when you run "rake".
+# # Do not set this db to the same as development or production.
+# test:
+#   <<: *default
+#   database: project_test #db/test.sqlite3
+
+# production:
+#   <<: *default
+#   database: project_production #db/production.sqlite3
+
