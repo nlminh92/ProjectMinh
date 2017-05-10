@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get 'blogs/index'
   resources :contacts
   get 'contacts/index'
+  resources :cart
+  get 'cart/index'
   resources :profiles
   resources :connections
   resources :networks
