@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170509155732) do
+ActiveRecord::Schema.define(version: 20170510150206) do
 
   create_table "brands", force: :cascade do |t|
     t.string   "name"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20170509155732) do
     t.integer  "retailler_id"
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
+    t.string   "lookbook"
     t.index ["brand_id"], name: "index_collections_on_brand_id"
     t.index ["retailler_id"], name: "index_collections_on_retailler_id"
   end

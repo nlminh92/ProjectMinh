@@ -27,6 +27,7 @@ class CollectionsController < ApplicationController
     @colection.image = params[:picture]
     @colection.description = params[:description]
     @colection.date_availability = params[:available]
+    @colection.lookbook = params[:lookbook]
 
 
     @colection.save

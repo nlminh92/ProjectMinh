@@ -25,6 +25,9 @@
               <i class="fa fa-cloud-upload"></i> Upload Image
           </label>%>
           <input id="file-upload" type="file" name="picture"/>
+          <h4>Lookbook</h4>
+          <input type="file" accept="application/pdf" /> 
+
         </div>
         <div class="col-md-8" style="border-left: 1px solid black; padding-left: 60px;">
           <div class="col-md-12">
@@ -57,7 +60,7 @@
             <h4>COLLECTION PRODUCTS</h4>
             <% @product.each_with_index do |p| %>
               <div class="col-md-3">
-                <img src="<%= p.image %>" alt="" style="width: 100%;">
+                <img src="<%= p.image %>" alt="" style="width: 60%;">
                 <h5><%= p.name_products %></h5>
                 <p><%= p.code %></p>
                 <label><input type="checkbox" value="<%= p.id %>" class="a"></label>

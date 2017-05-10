@@ -15,9 +15,10 @@ group :test, :development do
 	 gem 'sqlite3'
   # gem "mysql2", "~> 0.3.20"
 end
-# group :production do
-#   gem 'pg'
-# end
+group :production do
+  gem 'pg'
+   gem 'rails_12factor'
+end
 
 gem 'font-awesome-rails', '~> 4.6', '>= 4.6.3.1'
 gem 'puma', '~> 3.0'

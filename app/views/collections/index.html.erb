@@ -25,6 +25,7 @@
             <th>Products</th>
             <th>Status</th>
             <th>View</th>
+            <th>Lookbook</th>
           </tr>
         </thead>
         <tbody>
@@ -36,6 +37,7 @@
                 <td>0</td>
                 <td>Active</td>
                 <td><%= link_to "View", collection_path(collection.id) %></td>
+                <td><%= collection.lookbook %></td>
               </tr>
           <% end %>
         </tbody>
