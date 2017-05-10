@@ -1,37 +1,28 @@
 class ProfilesController < ApplicationController
   def index
-    if current_user.type_user = Settings.brand
-      @profile = current_user.brand
-    elsif current_user.type_user = Settings.retailler
-      @profile = current_user.brand
-    end
+    @profile = current_user
   end
 
   def show
-    @profile = Brand.find_by(id: params[:id])
+    @profile = User.find_by(brand_id: params[:id])
+    if @profile.blank?
+      @profile = User.find_by(retailler_id: params[:id])
+    end
   end
 
   def edit
-    if current_user.type_user = Settings.brand
-      @profile = current_user.brand
-    elsif current_user.type_user = Settings.retailler
-      @profile = current_user.brand
-    end
+    @profile = current_user
   end
 
   def update
-    if current_user.type_user = Settings.brand
-      @profile = current_user.brand
-    elsif current_user.type_user = Settings.retailler
-      @profile = current_user.brand
-    end
-    @profile.update_attributes(profile_params)
+    current_user.update_attributes(profile_params)
     redirect_to profiles_path
   end
 
   private
 
   def profile_params
-    params.permit :logo, :name, :description, :facebook, :instagram
+    params.permit :avatar, :company, :website, :address, :zip_code, :country,
+      :firstname_contact, :lastname_contact, :phone, :description
   end
 end
