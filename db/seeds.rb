@@ -1,5 +1,11 @@
 brand = Brand.new(name: "Brand")
 retailler = Retailler.new(name: "Retailler")
+
+brand2 = Brand.new(name: "Brand")
+retailler2 = Retailler.new(name: "Retailler")
+
+brand3 = Brand.new(name: "Brand")
+retailler3 = Retailler.new(name: "Retailler")
 retailler.save!
 brand.save!
 User.create(email: "admin@example.com", password: "12345678",
@@ -12,12 +18,12 @@ User.create(email: "user_1@example.com", password: "12345678",
    password_confirmation: "12345678", type_user: 0,
       website: "example.com", address: "Viet Nam", zip_code: "10000",
       country: "VietNam", firstname_contact: "user_1", lastname_contact: "user_1", phone: "123424",
-      description: "description", activated: 1, brand_id: brand.id)
+      description: "description", activated: 1, brand_id: brand2.id)
 User.create(email: "user_2@example.com", password: "12345678",
    password_confirmation: "12345678", type_user: 0,
       website: "example.com", address: "Viet Nam", zip_code: "10000",
       country: "VietNam", firstname_contact: "user_2", lastname_contact: "user_2", phone: "123424",
-      description: "description", activated: 0, brand_id: brand.id)
+      description: "description", activated: 0, brand_id: brand3.id)
 User.create(email: "user_3@example.com", password: "12345678",
    password_confirmation: "12345678", type_user: 1,
       website: "example.com", address: "Viet Nam", zip_code: "10000",

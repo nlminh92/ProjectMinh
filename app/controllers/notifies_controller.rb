@@ -1,4 +1,6 @@
 class NotifiesController < ApplicationController
+  before_action :user_signin
+  before_action :user_actived
   def index
     if current_user.type_user == 0
       @notifi = Connection.where(brand_id: current_user.brand.id, seen: 1, status: 2)

@@ -1,4 +1,7 @@
 class ActiveNetworksController < ApplicationController
+  before_action :user_signin
+  before_action :user_actived
+
   def index
     if current_user.type_user == 0
       @actives = Connection.where("brand_id = ? and status=1",

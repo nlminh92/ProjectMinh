@@ -1,4 +1,6 @@
 class ConnectionsController < ApplicationController
+  before_action :user_signin
+  before_action :user_actived
   def index
     # @follower = Connection.where(brand_follow_id: current_user.brand.id)
     # @following = Connection.where(brand_following_id: current_user.brand.id)
