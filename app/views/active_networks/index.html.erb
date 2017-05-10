@@ -20,18 +20,34 @@
           </tr>
         </thead>
         <tbody>
-          <% @actives.each do |active| %>
-              <tr>
-                <td><%= active.id %></td>
-                <% if active.brand_follow.logo.blank? %>
-                  <td><img src="/img/logo.png" alt="" class="image-product"></td>
-                <% else %>
-                  <td><img src="<%= active.brand_follow.logo %>" alt="" class="image-product"></td>
-                <% end %>
-                <td><%= active.brand_follow.name %></td>
-                <td><input type="checkbox" value="<%= active.id %>" name="active[]">Connecting</td>
-                <td><%= link_to "View", profile_path(active.brand_follow.id) %></td>
-              </tr>
+          <% if current_user.type_user == 0 %>
+            <% @actives.each_with_index do |active, index| %>
+                <tr>
+                  <td><%= index + 1 %></td>
+                  <% if active.retailler.user.avatar.blank? %>
+                    <td><img src="/img/user.jpg" alt="" class="image-product"></td>
+                  <% else %>
+                    <td><img src="<%= active.retailler.user.avatar %>" alt="" class="image-product"></td>
+                  <% end %>
+                  <td><%= active.retailler.name %></td>
+                  <td><input type="checkbox" value="<%= active.id %>" name="active[]">Connecting</td>
+                  <td><%= link_to "View", profile_path(active.retailler.id) %></td>
+                </tr>
+            <% end %>
+          <% elsif current_user.type_user == 1 %>
+            <% @actives.each_with_index do |active, index| %>
+                <tr>
+                  <td><%= index + 1 %></td>
+                  <% if active.brand.user.avatar.blank? %>
+                    <td><img src="/img/user.jpg" alt="" class="image-product"></td>
+                  <% else %>
+                    <td><img src="<%= active.brand.user.avatar %>" alt="" class="image-product"></td>
+                  <% end %>
+                  <td><%= active.brand.name %></td>
+                  <td><input type="checkbox" value="<%= active.id %>" name="active[]">Connecting</td>
+                  <td><%= link_to "View", profile_path(active.brand.id) %></td>
+                </tr>
+            <% end %>
           <% end %>
         </tbody>
       </table>

@@ -8,15 +8,15 @@ class CollectionsController < ApplicationController
     @collections = Collection.all
     if params[:search]
     @collectionss = Collection.search(params[:search]).order("created_at DESC")
-  else
-    @collections = Collection.all.order('created_at DESC')
-  end
+    else
+      @collections = Collection.all.order('created_at DESC')
+    end
   end
 
   def show
     @collection = Collection.find_by id: params[:id]
   end
-  
+
   def new
     @product = Product.all
   end

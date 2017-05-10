@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   resources :connections
   resources :networks
   resources :active_networks
+  resources :notifies
 
 #   devise_for :users, :controllers => {
 #   sessions: 'user/sessions'
