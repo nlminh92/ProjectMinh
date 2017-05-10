@@ -96,8 +96,8 @@
               </div>
 
               <div class="form-group margin-bottom-15px">
-                    <span> <%= t "Da co tai khoan" %></span><br>
-                    <%= render "devise/shared/links" %>
+                    <%= f.label :Have_an_existing_acount_? %><br />
+                          <%= link_to 'Login', user_session_path %>
                 </div>
 
             <% end %>

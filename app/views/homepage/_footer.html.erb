@@ -20,16 +20,29 @@
                         <li><%= link_to 'Homes', homes_path %></li>
                         <li><%= link_to 'Contact', contacts_path %></li>
                         <li><%= link_to 'Blogs', blogs_path %></li>
-                        <li>Facebook</li>
                  </ul>
                  </article>
             </div>
-            <div class="col-md-4 widget">
+            <div class="col-md-3 widget">
+                <h2>FAQ</h2>
+                <article class="widget_content">
+                    <ul>
+                        <li><class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Terms & Conditions
+                        </li>
+                        <li><class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1">Privacy Policy
+                        </li>
+                        <li><class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">
+                        Shipping
+                        </li>
+                 </ul>
+                 </article>
+            </div>
+            <!-- <div class="col-md-4 widget">
                 <h2>Contact Us</h2>
                 <article class="widget_content">
                     <p>IMONI, 8, Avenue Hoche, 75008 Paris, France<br> custormerservice@imoni.eu<br>Phone: +33.1.53.83.09.02</p>
                 </article>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
@@ -41,3 +54,71 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog" style="margin-top: 100px;">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Terms & Conditions</h4>
+                  </div>
+                  <div class="modal-body">
+                    ....
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Privacy Policy</h4>
+                  </div>
+                  <div class="modal-body">
+                     ....
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog" style="margin-top: 100px;">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Shipping</h4>
+                  </div>
+                  <div class="modal-body">
+                    STOCKHOLM INNE LIMITED SHIPS VIA POST. PRODUCTS ARE READY TO SHIP WITHIN 5 DAYS OF YOU PLACING YOUR ORDER. PAID FUNDS ARE TO BE WITHDRAWN FROM CREDIT CARDS UPON DISPATCHING THE GOODS.</br></br>
+                    WITH HIGH DEMAND ITEMS, YOUR ORDER MAY BE BACKORDERED OR DELAYED. YOU WILL BE NOTIFIED IF THERE ARE ANTICIPATED DELAYS. WHEN PLACING YOUR ORDER, IT IS IMPORTANT TO SUBMIT ACCURATE SHIPPING INFORMATION. WE WILL SHIP TO THE ADDRESS PROVIDED AND WILL NOT BE LIABLE FOR LOST PACKAGES DUE TO INCORRECT SHIPPING INFORMATION. WE WILL ONLY SHIP TO MATCHING BILLING AND SHIPPING ADDRESSES AND WILL NOT SHIP TO P.O. BOXES. 
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+<script type="text/javascript">
+    function centerModal() {
+    $(this).css('display', 'block');
+    var $dialog = $(this).find(".modal-dialog");
+    var offset = ($(window).height() - $dialog.height()) / 2;
+    // Center modal vertically in window
+    $dialog.css("margin-top", offset);
+}
+
+$('.modal').on('show.bs.modal', centerModal);
+$(window).on("resize", function () {
+    $('.modal:visible').each(centerModal);
+});
+</script>

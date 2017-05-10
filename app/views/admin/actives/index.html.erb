@@ -13,12 +13,13 @@
             <tr>
               <th>User ID</th>
               <th>User avatar</th>
-              <th>User Email</th>
+              <th>User email</th>
               <th>Company</th>
               <th>Website</th>
               <th>Type</th>
               <th>Active</th>
               <th>Not active</th>
+              <th>View</th>
             </tr>
           </thead>
           <tbody>
@@ -47,6 +48,7 @@
                   <% end %>
                   <td><label><input type="radio" value="1" name="user_<%= user.id %>" <%= @active %>>Active</label></td>
                   <td><label><input type="radio" value="0" name="user_<%= user.id %>" <%= @notactive %>>Not Active</label></td>
+                  <td><%= link_to "View", profile_path(user.id) %></td>
                 </tr>
             <% end %>
           </tbody>
@@ -57,7 +59,7 @@
 </div>
 <style>
 .image-product {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
 }
 </style>
