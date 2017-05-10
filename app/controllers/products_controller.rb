@@ -4,10 +4,10 @@ class ProductsController < ApplicationController
   # skip_before_action :verify_authenticity_token
   skip_before_filter :verify_authenticity_token
   def index
-    if current_user.type_user = Settings.brand
+    if current_user.type_user == 0
       @products_index = Product.where(brand_id: current_user.brand.id)
-    elsif current_user.type_user = Settings.retailler
-      @products_index = Product.where(brand_id: current_user.brand.id)
+    elsif current_user.type_user == 1
+      @products_index = Product.where(retailler: current_user.retailler.id)
     end
     if params[:search]
       @products = Product.search(params[:search]).order("created_at DESC")
@@ -42,10 +42,10 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new
-    if current_user.type_user = Settings.brand
+    if current_user.type_user = 0
       @product.brand_id = current_user.brand.id
-    elsif current_user.type_user = Settings.retailler
-      @product.brand_id = current_user.brand.id
+    elsif current_user.type_user = 1
+      @product.retailler_id = current_user.retailler.id
     end
     @product.type_sell =  params[:sell_type]
     @product.active = params[:active_product]

@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+  before_action :user_signin
   def index
     @profile = current_user
   end
