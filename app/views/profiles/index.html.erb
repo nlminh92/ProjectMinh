@@ -11,25 +11,29 @@
   </div>
   <div class="row" style="margin-top: 30px;">
     <div class="col-md-5" style="border-right: 1px solid black; height: 70vh;">
-      <% if @profile.logo.blank? %>
-        <img src="/img/logo.png" alt="" style="width: 100%; height: auto;">
+      <% if @profile.avatar.blank? %>
+        <img src="/img/user.jpg" alt="" style="width: 100%; height: auto;">
       <% else %>
-        <img src="<%= @profile.logo %>" alt="" style="width: 100%; height: auto;">
+        <img src="<%= @profile.avatar %>" alt="" style="width: 100%; height: auto;">
       <% end %>
     </div>
     <div class="col-md-7" style="padding-left:20px;">
       <h4 style="color:red;">Company:</h4>
+      <p style="font-size:18px; padding-left:20px;"><%= @profile.company %></p>
       <h4 style="color:red;">Email:</h4>
+      <p style="font-size:18px; padding-left:20px;"><%= @profile.email %></p>
       <h4 style="color:red;">Contact:</h4>
-      <h4 style="color:red;">Location:</h4>
-      <h4 style="color:red;">Name:</h4>
-      <p style="font-size:18px; padding-left:20px;"><%= @profile.name %></p>
-      <h4 style="color:red;">Description:</h4>
-      <p style="font-size:18px; padding-left:20px;"><%= @profile.description %></p>
-      <h4 style="color:red;">Facebook:</h4>
-      <p style="font-size:18px; padding-left:20px;"><%= @profile.facebook %></p>
-      <h4 style="color:red;">Instagram:</h4>
-      <p style="font-size:18px; padding-left:20px;"><%= @profile.instagram %></p>
+      <p style="font-size:18px; padding-left:20px;"><%= @profile.firstname_contact %> <%= @profile.lastname_contact %></p>
+      <h4 style="color:red;">Website:</h4>
+      <p style="font-size:18px; padding-left:20px;"><%= @profile.website %></p>
+      <h4 style="color:red;">Address:</h4>
+      <p style="font-size:18px; padding-left:20px;"><%= @profile.address %></p>
+      <h4 style="color:red;">Zip code:</h4>
+      <p style="font-size:18px; padding-left:20px;"><%= @profile.zip_code %></p>
+      <h4 style="color:red;">Country:</h4>
+      <p style="font-size:18px; padding-left:20px;"><%= @profile.country %></p>
+      <h4 style="color:red;">Phone number:</h4>
+      <p style="font-size:18px; padding-left:20px;"><%= @profile.phone %></p>
     </div>
   </div>
 </div>
