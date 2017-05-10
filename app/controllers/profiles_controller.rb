@@ -4,10 +4,7 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @profile = User.find_by(brand_id: params[:id])
-    if @profile.blank?
-      @profile = User.find_by(retailler_id: params[:id])
-    end
+    @profile = User.find_by(id: params[:id])
   end
 
   def edit

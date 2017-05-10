@@ -1,7 +1,7 @@
 <div id="page-wrapper">
   <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#home">Connected Follower</a></li>
-    <li><a data-toggle="tab" href="#menu">Connected Following</a></li>
+    <li><a data-toggle="tab" href="#menu">Sent Connect</a></li>
     <li><a data-toggle="tab" href="#menu1">Connecting</a></li>
   </ul>
 
@@ -19,25 +19,41 @@
             </tr>
           </thead>
           <tbody>
-            <% @connected.each do |connect| %>
-                <tr>
-                  <td><%= connect.id %></td>
-                  <% if connect.brand_following.logo.blank? %>
-                    <td><img src="/img/logo.png" alt="" class="image-product"></td>
-                  <% else %>
-                    <td><img src="<%= connect.brand_following.logo %>" alt="" class="image-product"></td>
-                  <% end %>
-                  <td><%= connect.brand_following.name %></td>
-                  <td>Connected</td>
-                  <td><%= link_to "View", profile_path(connect.brand_following.id) %></td>
-                </tr>
+            <% if current_user.type_user == 0 %>
+              <% @connected.each_with_index do |connect, index| %>
+                  <tr>
+                    <td><%= index + 1 %></td>
+                    <% if connect.retailler.user.avatar.blank? %>
+                      <td><img src="/img/user.jpg" alt="" class="image-product"></td>
+                    <% else %>
+                      <td><img src="<%= connect.retailler.user.avatar %>" alt="" class="image-product"></td>
+                    <% end %>
+                    <td><%= connect.retailler.name %></td>
+                    <td>Connected</td>
+                    <td><%= link_to "View", profile_path(connect.retailler.user.id) %></td>
+                  </tr>
+              <% end %>
+            <% elsif current_user.type_user == 1 %>
+              <% @connected.each_with_index do |connect, index| %>
+                  <tr>
+                    <td><%= index + 1 %></td>
+                    <% if connect.brand.user.avatar.blank? %>
+                      <td><img src="/img/user.jpg" alt="" class="image-product"></td>
+                    <% else %>
+                      <td><img src="<%= connect.brand.user.avatar %>" alt="" class="image-product"></td>
+                    <% end %>
+                    <td><%= connect.brand.name %></td>
+                    <td>Connected</td>
+                    <td><%= link_to "View", profile_path(connect.brand.user.id) %></td>
+                  </tr>
+              <% end %>
             <% end %>
           </tbody>
         </table>
       </div>
     </div>
 
-     <div id="menu" class="tab-pane fade in active">
+     <div id="menu" class="tab-pane fade in">
       <div class="col-md-12">
         <table class="table">
           <thead>
@@ -50,18 +66,34 @@
             </tr>
           </thead>
           <tbody>
-            <% @connecter.each do |connect| %>
-                <tr>
-                  <td><%= connect.id %></td>
-                  <% if connect.brand_follow.logo.blank? %>
-                    <td><img src="/img/logo.png" alt="" class="image-product"></td>
-                  <% else %>
-                    <td><img src="<%= connect.brand_follow.logo %>" alt="" class="image-product"></td>
-                  <% end %>
-                  <td><%= connect.brand_follow.name %></td>
-                  <td>Connected</td>
-                  <td><%= link_to "View", profile_path(connect.brand_follow.id) %></td>
-                </tr>
+            <% if current_user.type_user == 0 %>
+              <% @connecter.each_with_index do |connect, index| %>
+                  <tr>
+                    <td><%= index + 1 %></td>
+                    <% if connect.retailler.user.avatar.blank? %>
+                      <td><img src="/img/user.jpg" alt="" class="image-product"></td>
+                    <% else %>
+                      <td><img src="<%= connect.retailler.user.avatar %>" alt="" class="image-product"></td>
+                    <% end %>
+                    <td><%= connect.retailler.name %></td>
+                    <td>Sent connect</td>
+                    <td><%= link_to "View", profile_path(connect.retailler.user.id) %></td>
+                  </tr>
+              <% end %>
+            <% elsif current_user.type_user == 1 %>
+              <% @connecter.each_with_index do |connect, index| %>
+                  <tr>
+                    <td><%= index + 1 %></td>
+                    <% if connect.brand.user.avatar.blank? %>
+                      <td><img src="/img/user.jpg" alt="" class="image-product"></td>
+                    <% else %>
+                      <td><img src="<%= connect.brand.user.avatar %>" alt="" class="image-product"></td>
+                    <% end %>
+                    <td><%= connect.brand.name %></td>
+                    <td>Sent connect</td>
+                    <td><%= link_to "View", profile_path(connect.brand.user.id) %></td>
+                  </tr>
+              <% end %>
             <% end %>
           </tbody>
         </table>
@@ -82,18 +114,34 @@
             </tr>
           </thead>
           <tbody>
-            <% @connecting.each do |connect| %>
-                <tr>
-                  <td><%= connect.id %></td>
-                  <% if connect.brand_following.logo.blank? %>
-                    <td><img src="/img/logo.png" alt="" class="image-product"></td>
-                  <% else %>
-                    <td><img src="<%= connect.brand_following.logo %>" alt="" class="image-product"></td>
-                  <% end %>
-                  <td><%= connect.brand_following.name %></td>
-                  <td>Connecting</td>
-                  <td><%= link_to "View", profile_path(connect.brand_following.id) %></td>
-                </tr>
+            <% if current_user.type_user == 0 %>
+              <% @connecting.each_with_index do |connect, index| %>
+                  <tr>
+                    <td><%= index + 1 %></td>
+                    <% if connect.retailler.user.avatar.blank? %>
+                      <td><img src="/img/user.jpg" alt="" class="image-product"></td>
+                    <% else %>
+                      <td><img src="<%= connect.retailler.user.avatar %>" alt="" class="image-product"></td>
+                    <% end %>
+                    <td><%= connect.retailler.name %></td>
+                    <td>Sent connect</td>
+                    <td><%= link_to "View", profile_path(connect.retailler.user.id) %></td>
+                  </tr>
+              <% end %>
+            <% elsif current_user.type_user == 1 %>
+              <% @connecting.each_with_index do |connect, index| %>
+                  <tr>
+                    <td><%= index + 1 %></td>
+                    <% if connect.brand.user.avatar.blank? %>
+                      <td><img src="/img/user.jpg" alt="" class="image-product"></td>
+                    <% else %>
+                      <td><img src="<%= connect.brand.user.avatar %>" alt="" class="image-product"></td>
+                    <% end %>
+                    <td><%= connect.brand.name %></td>
+                    <td>Sent connect</td>
+                    <td><%= link_to "View", profile_path(connect.brand.user.id) %></td>
+                  </tr>
+              <% end %>
             <% end %>
           </tbody>
         </table>

@@ -2,7 +2,11 @@
 <div id="page-wrapper">
   <div class="row" style="margin-top: 20px;">
     <div class="col-md-2">
-      <h4>RETAILERS</h4>
+      <% if current_user.type_user == 0 %>
+        <h4>RETAILERS</h4>
+      <% elsif current_user.type_user == 1 %>
+        <h4>BRANDS</h4>
+      <% end %>
     </div>
     <div class="col-md-3 col-md-offset-7">
       <button type="submit" class="btn btn-primary">+ CONNECT</button>
@@ -20,17 +24,17 @@
           </tr>
         </thead>
         <tbody>
-          <% @brand.each do |brand| %>
+          <% @retaillers.each do |retailler| %>
               <tr>
-                <td><%= brand.id %></td>
-                <% if brand.logo.blank? %>
-                  <td><img src="/img/logo.png" alt="" class="image-product"></td>
+                <td><%= retailler.id %></td>
+                <% if retailler.user.avatar.blank? %>
+                  <td><img src="/img/user.jpg" alt="" class="image-product"></td>
                 <% else %>
-                  <td><img src="<%= brand.logo %>" alt="" class="image-product"></td>
+                  <td><img src="<%= retailler.user.avatar %>" alt="" class="image-product"></td>
                 <% end %>
-                <td><%= brand.name %></td>
-                <td><input type="checkbox" value="<%= brand.id %>" name="brand[]">Connect</td>
-                <td><%= link_to "View", profile_path(brand.id) %></td>
+                <td><%= retailler.name %></td>
+                <td><input type="checkbox" value="<%= retailler.id %>" name="retailler[]">Connect</td>
+                <td><%= link_to "View", profile_path(retailler.user.id) %></td>
               </tr>
           <% end %>
         </tbody>
