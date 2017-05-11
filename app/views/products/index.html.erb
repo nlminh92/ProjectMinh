@@ -43,7 +43,7 @@
             <td><%= product.code %></td>
             <td><%= product.type_sell %></td>
             <td><%= product.gender.gsub!("[", "").gsub!("]", "") %></td>
-            <% if product.active %>
+            <% if product.active == 1 %>
               <td>Active</td>
             <% else %>
               <td>InActive</td>
