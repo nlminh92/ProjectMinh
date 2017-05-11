@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170510222154) do
+ActiveRecord::Schema.define(version: 20170511174419) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -22,6 +22,18 @@ ActiveRecord::Schema.define(version: 20170510222154) do
     t.string   "instagram"
     t.string   "location"
     t.string   "contact"
+  end
+
+  create_table "cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "brand_id"
+    t.integer  "retailler_id"
+    t.integer  "status"
+    t.integer  "count"
+    t.float    "total",        limit: 24
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.index ["brand_id"], name: "index_cards_on_brand_id", using: :btree
+    t.index ["retailler_id"], name: "index_cards_on_retailler_id", using: :btree
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -61,6 +73,15 @@ ActiveRecord::Schema.define(version: 20170510222154) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "number"
+    t.float    "price",      limit: 24
+    t.integer  "product_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.index ["product_id"], name: "index_orders_on_product_id", using: :btree
   end
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -148,10 +169,13 @@ ActiveRecord::Schema.define(version: 20170510222154) do
     t.index ["retailler_id"], name: "index_users_on_retailler_id", using: :btree
   end
 
+  add_foreign_key "cards", "brands"
+  add_foreign_key "cards", "retaillers"
   add_foreign_key "collections", "brands"
   add_foreign_key "collections", "retaillers"
   add_foreign_key "connections", "brands"
   add_foreign_key "connections", "retaillers"
+  add_foreign_key "orders", "products"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "collections"
   add_foreign_key "products", "retaillers"

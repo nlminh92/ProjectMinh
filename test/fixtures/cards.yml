@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  brand: one
+  retailler: one
+  status: 1
+  count: 
+  total: 1.5
+
+two:
+  brand: two
+  retailler: two
+  status: 1
+  count: 
+  total: 1.5
