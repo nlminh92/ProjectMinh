@@ -11,11 +11,11 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'rails', '~> 5.0.1'
 gem 'carrierwave', '~> 1.0'
 
-group :test, :development do
+group :test do
 	 gem 'sqlite3'
   # gem "mysql2", "~> 0.3.20"
 end
-group :production do
+group :development, :production do
   gem 'pg'
    gem 'rails_12factor'
 end
