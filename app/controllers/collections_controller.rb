@@ -60,6 +60,7 @@ class CollectionsController < ApplicationController
     @colection.name_collections = params[:title]
     @colection.image = params[:picture]
     @colection.status = params[:optradio]
+    @colection.active = params[:optradio]
     @colection.description = params[:description]
     @colection.date_availability = params[:available]
     @colection.lookbook = params[:lookbook]

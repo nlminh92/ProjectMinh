@@ -3,17 +3,7 @@
     <div class="col-md-2">
       <h4>COLLECTIONS</h4>
     </div>
-     <div class="col-md-3 col-md-offset-7">
-      <%= link_to new_collection_path do %>
-        <button type="button" class="btn btn-primary">+ ADD NEW COLLECTIONS</button>
-      <% end %>
-    </div>
-
 <div class="col-md-10">
-    <%= form_tag(collections_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search Collections" %>
-    <%= submit_tag "Search" %>
-<% end %>
 </div>
     <div class="col-md-12">
       <table class="table">
@@ -26,6 +16,7 @@
             <th>Status</th>
             <th>View</th>
             <th>Lookbook</th>
+            <th>Products</th>
           </tr>
         </thead>
         <tbody>
@@ -38,6 +29,7 @@
                 <td>Active</td>
                 <td><%= link_to "View", collection_path(collection.id) %></td>
                 <td><%= collection.lookbook %></td>
+                <td><%= link_to "View Products", product_brand_path(collection.id) %></td>
               </tr>
           <% end %>
         </tbody>

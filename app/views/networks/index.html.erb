@@ -15,7 +15,10 @@
               <th>Logo</th>
               <th>Name</th>
               <th>Connect</th>
-              <th>View</th>
+              <th>View Profile</th>
+              <% if current_user.type_user == 1 %>
+                <th>View Collection</th>
+              <% end %>
             </tr>
           </thead>
           <tbody>
@@ -45,6 +48,7 @@
                     <td><%= connect.brand.name %></td>
                     <td>Connected</td>
                     <td><%= link_to "View", profile_path(connect.brand.user.id) %></td>
+                    <td><%= link_to "View Collections", collection_brand_path(connect.brand.id) %></td>
                   </tr>
               <% end %>
             <% end %>
