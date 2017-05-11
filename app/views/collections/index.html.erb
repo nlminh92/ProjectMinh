@@ -34,7 +34,7 @@
                 <td><%= collection.id %></td>
                 <td><img src="<%= collection.image %>" alt="" class="image-product"></td>
                 <td><%= collection.name_collections %></td>
-                <td>0</td>
+                <td><%= collection.products.count %></td>
                 <td>Active</td>
                 <td><%= link_to "View", collection_path(collection.id) %></td>
                 <td><%= collection.lookbook %></td>

@@ -1,10 +1,10 @@
 <div id="page-wrapper">
   <div>
-    <form enctype="multipart/form-data" class="form-horizontal form-label-left form" method="POST" action="/collections" accept-charset="utf-8">
+    <%= form_tag({controller: "/collections", action: "update"}, method: "put", multipart: true, class: "form-horizontal form-label-left form") do %>
       <div class="row" style="border-bottom: 1px solid black;">
         <div class="col-md-8" style="border-right: 1px solid black;">
           <div class="col-md-6">
-            <h4>ADD NEW COLLECTION</h4>
+            <h4>EDIT COLLECTION</h4>
           </div>
         </div>
 
@@ -13,7 +13,7 @@
             <button class="btn btn-default" type="reset" name="reset">CANCEL</button>
           </div>
           <div class="col-md-6">
-            <button class="btn btn-success" id="send" type="submit">CREATE</button>
+            <button class="btn btn-success" id="send" type="submit">UPDATE</button>
           </div>
         </div>
       </div>
@@ -35,23 +35,23 @@
           </div>
           <div class="form-group">
             <label for="style_code">Collection Title</label>
-            <input type="text" class="form-control" id="style_code" name="title">
+            <input type="text" class="form-control" id="style_code" name="title" value="<%= @collection.name_collections %>">
           </div>
           <div class="form-group">
             <label for="product_name">Date availablity</label>
-            <input type="text" class="form-control" id="product_name" name="available">
+            <input type="text" class="form-control" id="product_name" name="available" value="<%= @collection.date_availability %>">
           </div>
           <div class="form-group" style= "margin-bottom: 20px;">
             <label for="description">Collection Description</label>
-            <textarea class="form-control" rows="5" id="comment" name="description"></textarea>
+            <textarea class="form-control" rows="5" id="comment" name="description"><%= @collection.description %></textarea>
           </div>
         </div>
 
         <div class="row" style="margin-bottom: 20px;">
           <div class="col-md-12" style="border-top: 1px solid black;">
             <h4>COLLECTION STATUS</h4>
-            <label class="radio-inline"><input type="radio" value="1" name="optradio">Active</label>
-            <label class="radio-inline"><input type="radio" value="0" name="optradio">Inactive</label>
+            <label class="radio-inline"><input type="radio" value="1" name="optradio" id="active_1">Active</label>
+            <label class="radio-inline"><input type="radio" value="0" name="optradio" id="active_2">Inactive</label>
           </div>
         </div>
 
@@ -63,12 +63,20 @@
                 <img src="<%= p.image %>" alt="" style="width: 60%;">
                 <h5><%= p.name_products %></h5>
                 <p><%= p.code %></p>
+                <label><input type="checkbox" value="<%= p.id %>" name="products[]" checked class="a"></label>
+              </div>
+            <% end %>
+            <% @product_2.each_with_index do |p| %>
+              <div class="col-md-3">
+                <img src="<%= p.image %>" alt="" style="width: 60%;">
+                <h5><%= p.name_products %></h5>
+                <p><%= p.code %></p>
                 <label><input type="checkbox" value="<%= p.id %>" name="products[]" class="a"></label>
               </div>
             <% end %>
           </div>
         </div>
-      </form>
+      <% end %>
     </div>
   </div>
 </div>
@@ -82,3 +90,13 @@
     margin: auto;
   }
 </style>
+<script>
+$(document).ready(function() {
+  var active = <%= @collection.status %>;
+  if(active) {
+    $("#active_1").prop("checked", true);
+  } else {
+    $("#active_2").prop("checked", true);
+  }
+});
+</script>
