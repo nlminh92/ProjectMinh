@@ -1,5 +1,5 @@
-<div id="page-wrapper" ng-app="app">
-  <div ng-controller="product_controller">
+<div id="page-wrapper">
+  <div>
       <div class="row" style="border-bottom: 1px solid black;">
         <div class="col-md-8" style="border-right: 1px solid black;">
           <div class="col-md-6">
@@ -12,7 +12,9 @@
             <button class="btn btn-default" type="reset" name="reset">DELETE</button>
           </div>
           <div class="col-md-6">
+            <%= link_to edit_collection_path(@collection.id) do %>
             <button class="btn btn-success" id="send" type="submit">EDIT</button>
+            <% end %>
           </div>
         </div>
       </div>
@@ -20,7 +22,7 @@
       <div class="row">
         <div class="col-md-4">
           <h4>Collection Image</h4>
-          
+
           <img src="<%= @collection.image %>" alt="" style="width: 100%;">
         </div>
         <div class="col-md-8" style="border-left: 1px solid black; padding-left: 60px;">
@@ -44,14 +46,21 @@
         <div class="row" style="margin-bottom: 20px;">
           <div class="col-md-12" style="border-top: 1px solid black;">
             <h4>COLLECTION STATUS</h4>
-            <label class="radio-inline"><input type="radio" name="optradio">Active</label>
-            <label class="radio-inline"><input type="radio" name="optradio">Inactive</label>
+            <label class="radio-inline"><input type="radio" name="optradio" id="active_1">Active</label>
+            <label class="radio-inline"><input type="radio" name="optradio" id="active_2">Inactive</label>
           </div>
         </div>
 
         <div class="row" style="margin-bottom: 20px;">
           <div class="col-md-12" style="border-top: 1px solid black;">
             <h4>COLLECTION PRODUCTS</h4>
+            <% @product.each_with_index do |p| %>
+              <div class="col-md-3">
+                <img src="<%= p.image %>" alt="" style="width: 60%;">
+                <h5><%= p.name_products %></h5>
+                <p><%= p.code %></p>
+              </div>
+            <% end %>
           </div>
         </div>
     </div>
@@ -67,3 +76,13 @@
     margin: auto;
   }
 </style>
+<script>
+$(document).ready(function() {
+  var active = <%= @collection.status %>;
+  if(active) {
+    $("#active_1").prop("checked", true);
+  } else {
+    $("#active_2").prop("checked", true);
+  }
+});
+</script>
