@@ -21,14 +21,16 @@
       <img src="<%= @product.image %>" alt="" style="width: 100%; height: auto;">
     </div>
     <div class="col-md-7" style="padding-left:20px;">
-      <h4 style="color:red;">Name products</h4>
+      <h4 style="color:red;">Name products :</h4>
       <p style="font-size:18px; padding-left:20px;"><%= @product.name_products %></p>
       <h4 style="color:red;">Style Code: </h4>
       <p style="font-size:18px; padding-left:20px;"><%= @product.code %></p>
       <h4 style="color:red;">Sell Type:</h4>
       <p style="font-size:18px; padding-left:20px;"><%= @product.type_sell %></p>
+      <h4 style="color:red;">Season: </h4>
+      <p style="font-size:18px; padding-left:20px;"><%= @product.season %></p>
       <h4 style="color:red;">Price: </h4>
-      <p style="font-size:18px; padding-left:20px;"><%= @product.price %> euro</p>
+      <p style="font-size:18px; padding-left:20px;"><%= @product.price %> Euro</p>
       <h4 style="color:red;">Gender: </h4>
       <p style="font-size:18px; padding-left:20px;"><%= @product.gender.gsub("[", "").gsub("]", "") %></p>
       <h4 style="color:red;">Size: </h4>
