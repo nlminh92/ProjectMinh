@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   resources :collection_brand
   resources :product_brand
   resources :my_orders
+  resources :brand_orders
 
 #   devise_for :users, :controllers => {
 #   sessions: 'user/sessions'
@@ -35,5 +36,6 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :actives
+    resources :active_orders
   end
 end

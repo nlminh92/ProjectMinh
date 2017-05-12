@@ -1,0 +1,2 @@
+module BrandOrdersHelper
+end
