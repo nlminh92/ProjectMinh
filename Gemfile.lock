@@ -98,8 +98,6 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.10.2)
     multi_json (1.12.1)
-    mysql2 (0.3.21)
-    mysql2 (0.3.21-x86-mingw32)
     nio4r (2.0.0)
     nokogiri (1.7.2)
       mini_portile2 (~> 2.1.0)
@@ -199,7 +197,6 @@ DEPENDENCIES
   font-awesome-rails (~> 4.6, >= 4.6.3.1)
   jbuilder (~> 2.5)
   jquery-rails
-  mysql2 (~> 0.3.20)
   puma (~> 3.0)
   rails (~> 5.0.1)
   rails_12factor

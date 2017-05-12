@@ -12,7 +12,7 @@ class CollectionBrandController < ApplicationController
       flash[:success] = "You have card in this brand. You can order product"
     end
     @brand = Brand.find_by id: params[:id]
-    @collections = Collection.where("brand_id=? and status=1", @brand.id)
+    @collections = Collection.where("brand_id=? and status=?", @brand.id, true)
   end
 
   def create

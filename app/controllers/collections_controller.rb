@@ -49,16 +49,18 @@ class CollectionsController < ApplicationController
 
   def new
     if current_user.type_user == 0
-      @product = Product.where("brand_id=? and active=1 and collection_id is null", current_user.brand.id)
+      @product = Product.where("brand_id=? and active=true and collection_id is null", current_user.brand.id)
     elsif current_user.type_user == 1
-      @product = Product.where("retailler_id=? and active=1 and collection_id is null", current_user.retailler.id)
+      @product = Product.where("retailler_id=? and active=true and collection_id is null", current_user.retailler.id)
     end
   end
 
   def create
     @colection = Collection.new
     @colection.name_collections = params[:title]
-    @colection.image = params[:picture]
+    if params[:picture].present?
+      @colection.image = params[:picture]
+    end
     @colection.status = params[:optradio]
     @colection.description = params[:description]
     @colection.date_availability = params[:available]

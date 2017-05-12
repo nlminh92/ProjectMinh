@@ -6,7 +6,7 @@ class ProductBrandController < ApplicationController
 
   def show
     @collection = Collection.find_by id: params[:id]
-    @products = Product.where("collection_id=? and active=1", @collection.id)
+    @products = Product.where("collection_id=? and active=?", @collection.id, true)
     @brand = @collection.brand
     @card = Card.find_by(brand_id: @brand.id, retailler_id: current_user.retailler.id,
       status: 0)
