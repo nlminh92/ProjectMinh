@@ -7,6 +7,10 @@ class Admin::ActivesController < ApplicationController
     @users = User.where(activated: 0)
   end
 
+  def show
+    @users = User.where(activated: 1)
+  end
+
   def create
     @users = User.where(activated: 0)
     @users.each do |user|

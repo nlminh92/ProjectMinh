@@ -1,0 +1,49 @@
+<div id="page-wrapper">
+    <div class="row" style="margin-top: 20px;">
+      <div class="col-md-2">
+        <h4>Admins</h4>
+      </div>
+      <div class="col-md-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>User ID</th>
+              <th>User avatar</th>
+              <th>User email</th>
+              <th>Company</th>
+              <th>Website</th>
+              <th>Type</th>
+              <th>View</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @users.each do |user| %>
+                <tr>
+                  <td><%= user.id %></td>
+                  <% unless user.avatar.blank? %>
+                    <td><img src="<%= user.avatar %>" alt="" class="image-product"></td>
+                  <% else %>
+                    <td><img src="/img/user.jpg" alt="" class="image-product"></td>
+                  <% end %>
+                  <td><%= user.email %></td>
+                  <td><%= user.company %></td>
+                  <td><%= user.website %></td>
+                  <% if user.type_user == 0 %>
+                    <td>Brand</td>
+                  <% else %>
+                    <td>Retailler</td>
+                  <% end %>
+                  <td><%= link_to "View", profile_path(user.id) %></td>
+                </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>
+<style>
+.image-product {
+  width: 80px;
+  height: 80px;
+}
+</style>
