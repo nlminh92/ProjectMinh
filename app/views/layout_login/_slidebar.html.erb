@@ -17,6 +17,7 @@
             <% if current_user.activated && current_user.type_user == 2 %>
                 <li><a href="/admin/actives"><i class="icon fa fa-list-alt fa-fw"></i>Active user</a></li>
                 <li onclick="window.location.reload(true)"><a href="/admin/active_orders/1"><i class="icon fa fa-file-o fa-fw" ></i>Active order</a></li>
+                <li><a href="/admin/actives/1"><i class="icon fa fa-bar-chart-o fa-fw"></i>List User</a></li>
                 <li><a href="/admin/active_orders"><i class="icon fa fa-file-o fa-fw"></i>Orders</a></li>
                 <li><a href="/admin/notifies"><i class="icon fa fa-bar-chart-o fa-fw"></i>Notifition Order</a></li>
             <% else %>
@@ -37,9 +38,9 @@
                 <% if current_user.type_user == 0 %>
                   <li onclick="window.location.reload(true)"><a href="/brand_orders/1"><i class="icon fa fa-file-o fa-fw"></i>Active Order</a></li>
                   <li><a href="/brand_orders"><i class="icon fa fa-file-o fa-fw"></i>Order</a></li>
-                  <li><a href="/notifie_order"><i class="icon fa fa-file-o fa-fw"></i>Notification Order</a></li>
+                  <li><a href="/notifies/1"><i class="icon fa fa-file-o fa-fw"></i>Notification Order</a></li>
                 <% elsif current_user.type_user == 1 %>
-                  <li><a href="/notifie_order"><i class="icon fa fa-file-o fa-fw"></i>Notification Order</a></li>
+                  <li><a href="/retailler_notify"><i class="icon fa fa-file-o fa-fw"></i>Notification Order</a></li>
                 <% end %>
 
 

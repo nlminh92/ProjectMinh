@@ -9,6 +9,23 @@ class NotifiesController < ApplicationController
     end
   end
 
+  def show
+    # 0 tao moi
+    # 1 doi admin
+    # 2 admin khong thanh cong
+    # 3 admin thanh cong doi brand
+    # 4 brand khong thanh cong
+    # 5 brand thanh cong
+    @card_send = Card.where(status: 3).order('updated_at DESC')
+  end
+
+  def retailler
+    @card_admin_fail = Card.where(status: 2).order('updated_at DESC')
+    @card_admin_success = Card.where(status: 3).order('updated_at DESC')
+    @card_brand_fail = Card.where(status: 4).order('updated_at DESC')
+    @card_brand_success = Card.where(status: 5).order('updated_at DESC')
+  end
+
   def create
     @active = params[:active]
     if @active.present?
