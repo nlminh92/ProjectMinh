@@ -1,52 +1,55 @@
-<div class="footer">
-    <div class="container">
+<div class="container">
+<!--     <section style="height:20px;"></section> -->
+  <div class="row" style="height: 40px;text-align:center;">
+  </div>
+    <footer class="footer-bs">
         <div class="row">
-            <div class="col-md-5 widget">
-                <h2>About</h2>
-                <article class="widget_content">
-                    <ul>
-                        <p>IMONI CAME ABOUT ON AN ARCTIC DAY IN STOCKHOLM, IN 2005
-                        DESIGNED AND INSPIRED AT KONSTFACK - THE UNI OF ART - FROM EARLY ON,
-                        IT REFLECTS THE COOL STYLES OF SWEDES, WITH A TOUCH OF COLOUR AND FUN
-                        MARKETED BY STOCKHOLM INNE LIMITED, WITH THE ARTISTIC DIRECTION BY MONI RAB, 
-                        THE FOUNDER, TODAY IT MAKES LEATHER AND FUR ACCESSORIES OUT OF THE ORDINARY.</p>
-                 </ul>
-                 </article>
+          <div class="col-md-3 footer-brand animated fadeInLeft">
+              <h2>Logo</h2>
+                <p>Suspendisse hendrerit tellus laoreet luctus pharetra. Aliquam porttitor vitae orci nec ultricies. Curabitur vehicula, libero eget faucibus faucibus, purus erat eleifend enim, porta pellentesque ex mi ut sem.</p>
+                <p></p>
             </div>
-            <div class="col-md-3 widget">
-                <h2>Link</h2>
-                <article class="widget_content">
-                    <ul>
-                        <li><%= link_to 'Homes', homes_path %></li>
+          <div class="col-md-4 footer-nav animated fadeInUp">
+              <h4>Menu —</h4>
+              <div class="col-md-6">
+                    <ul class="pages">
+                        <li><%= link_to 'Showrooms', homes_path %></li>
+                        <li><%= link_to 'Brands', brands_path %></li>
+                        <li><%= link_to 'Retailers', retailers_path %></li>
                         <li><%= link_to 'Contact', contacts_path %></li>
-                        <li><%= link_to 'Blogs', blogs_path %></li>
-                 </ul>
-                 </article>
+                        <li><%= link_to 'Blog', blogs_path %></li>
+                        <li><%= link_to 'About us', blogs_path %></li>
+                    </ul>
+                </div>
+              <div class="col-md-6">
+                    <ul class="list">
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Terms & Condition</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="col-md-3 widget">
-                <h2>FAQ</h2>
-                <article class="widget_content">
-                    <ul>
-                        <li><class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Terms & Conditions
-                        </li>
-                        <li><class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1">Privacy Policy
-                        </li>
-                        <li><class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">
-                        Shipping
-                        </li>
-                 </ul>
-                 </article>
+          <div class="col-md-2 footer-social animated fadeInDown">
+              <h4>Follow Us</h4>
+              <ul>
+                  <li><a href="https://www.facebook.com/Imonishowroom"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a></li>
+                  <li><a href="https://www.facebook.com/Imonishowroom"><i id="social-fb" class="fa fa-instagram fa-3x social"></i></a></li>
+                </ul>
             </div>
-            <!-- <div class="col-md-4 widget">
-                <h2>Contact Us</h2>
-                <article class="widget_content">
-                    <p>IMONI, 8, Avenue Hoche, 75008 Paris, France<br> custormerservice@imoni.eu<br>Phone: +33.1.53.83.09.02</p>
-                </article>
-            </div> -->
+          <div class="col-md-3 footer-ns animated fadeInRight">
+              <h4>Newsletter</h4>
+                <p>Sign up to get the latest on sales, new releases and more …</p>
+                <p>
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="Enter your email ...">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
+                      </span>
+                    </div><!-- /input-group -->
+                 </p>
+            </div>
         </div>
-    </div>
-</div>
-</br>
+    </footer>
 <div class="footer-bottom">
     <div class="container">
         <div class="row">
@@ -54,57 +57,8 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content" style="margin-top: 100px;max-height: 100px;">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Terms & Conditions</h4>
-                  </div>
-                  <div class="modal-body">
-                   ...
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  </div>
-                </div>
-              </div>
-            </div>
 
-<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Privacy Policy</h4>
-                  </div>
-                  <div class="modal-body">
-                     ....
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-              <div class="modal-dialog" style="margin-top: 100px;">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Shipping</h4>
-                  </div>
-                  <div class="modal-body">
-                    STOCKHOLM INNE LIMITED SHIPS VIA POST. PRODUCTS ARE READY TO SHIP WITHIN 5 DAYS OF YOU PLACING YOUR ORDER. PAID FUNDS ARE TO BE WITHDRAWN FROM CREDIT CARDS UPON DISPATCHING THE GOODS.</br></br>
-                    WITH HIGH DEMAND ITEMS, YOUR ORDER MAY BE BACKORDERED OR DELAYED. YOU WILL BE NOTIFIED IF THERE ARE ANTICIPATED DELAYS. WHEN PLACING YOUR ORDER, IT IS IMPORTANT TO SUBMIT ACCURATE SHIPPING INFORMATION. WE WILL SHIP TO THE ADDRESS PROVIDED AND WILL NOT BE LIABLE FOR LOST PACKAGES DUE TO INCORRECT SHIPPING INFORMATION. WE WILL ONLY SHIP TO MATCHING BILLING AND SHIPPING ADDRESSES AND WILL NOT SHIP TO P.O. BOXES. 
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  </div>
-                </div>
-              </div>
-            </div>
+</div>         
 
 
 
@@ -122,3 +76,56 @@ $(window).on("resize", function () {
     $('.modal:visible').each(centerModal);
 });
 </script>
+<style type="text/css">
+  .footer-bs {
+    background-color: #3c3d41;
+  padding: 60px 40px;
+  color: rgba(255,255,255,1.00);
+  margin-bottom: 20px;
+  border-bottom-right-radius: 6px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 6px;
+}
+.footer-bs .footer-brand, .footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { padding:10px 25px; }
+.footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { border-color: transparent; }
+.footer-bs .footer-brand h2 { margin:0px 0px 10px; }
+.footer-bs .footer-brand p { font-size:12px; color:rgba(255,255,255,0.70); }
+
+.footer-bs .footer-nav ul.pages { list-style:none; padding:0px; }
+.footer-bs .footer-nav ul.pages li { padding:5px 0px;}
+.footer-bs .footer-nav ul.pages a { color:rgba(255,255,255,1.00); font-weight:bold; text-transform:uppercase; }
+.footer-bs .footer-nav ul.pages a:hover { color:rgba(255,255,255,0.80); text-decoration:none; }
+.footer-bs .footer-nav h4 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom:10px;
+}
+
+.footer-bs .footer-nav ul.list { list-style:none; padding:0px; }
+.footer-bs .footer-nav ul.list li { padding:5px 0px;}
+.footer-bs .footer-nav ul.list a { color:rgba(255,255,255,0.80); }
+.footer-bs .footer-nav ul.list a:hover { color:rgba(255,255,255,0.60); text-decoration:none; }
+
+.footer-bs .footer-social ul { list-style:none; padding:0px; }
+.footer-bs .footer-social h4 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+.footer-bs .footer-social li { padding:5px 4px;}
+.footer-bs .footer-social a { color:rgba(255,255,255,1.00);}
+.footer-bs .footer-social a:hover { color:rgba(255,255,255,0.80); text-decoration:none; }
+
+.footer-bs .footer-ns h4 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom:10px;
+}
+.footer-bs .footer-ns p { font-size:12px; color:rgba(255,255,255,0.70); }
+
+@media (min-width: 768px) {
+  .footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { border-left:solid 1px rgba(255,255,255,0.10); }
+}
+</style>
