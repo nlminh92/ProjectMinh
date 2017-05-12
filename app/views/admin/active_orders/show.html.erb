@@ -1,0 +1,42 @@
+<div id="page-wrapper">
+    <div id="home" class="tab-pane fade in active">
+      <div class="col-md-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Brand Name</th>
+              <th>Total</th>
+              <th>Rate</th>
+              <th>Not accept</th>
+              <th>Accept</th>
+              <th>Send</th>
+              <th>View</th>
+            </tr>
+          </thead>
+          <tbody>
+              <% @cards.each_with_index do |card, index| %>
+                  <tr>
+                    <td><%= index + 1 %></td>
+                    <td><%= card.brand.name %></td>
+                    <td><%= card.total %></td>
+                    <form action="/admin/active_orders" method="POST">
+                      <td><input type="number" name="rate" value="5"></td>
+                      <td><input type="radio" value="0" name="accept"> Not accept</td>
+                      <input type="hidden" value="<%= card.id %>" name="card_id">
+                      <td><input type="radio" value="1" name="accept"> Accept</td>
+                      <td><button type="submit" class="btn btn-primary">Send</button></td>
+                    </form>
+                    <td><%= link_to "View", cart_path(card.id) %></td>
+                  </tr>
+              <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>
+<style>
+  input[type="number"] {
+    width:50px;
+  }
+</style>
