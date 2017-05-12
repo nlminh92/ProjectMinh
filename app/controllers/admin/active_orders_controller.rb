@@ -27,8 +27,9 @@ class Admin::ActiveOrdersController < ApplicationController
         @card.update_attributes(status: 2)
         flash[:success] = "Not active"
       else
+        @all_total = @card.total + @card.total*params[:rate].to_i
         @card.update_attributes(shipping: params[:rate].to_i,
-          status: 3)
+          status: 3, all_total: @all_total)
         flash[:success] = "Active"
       end
     end

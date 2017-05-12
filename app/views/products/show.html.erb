@@ -11,8 +11,10 @@
       <% end %>
     </div>
     <div class="col-md-3 col-md-offset-1">
-      <%= link_to edit_product_path(@product.id) do %>
-        <button type="button" class="btn btn-primary">+ EDIT PRODUCT</button>
+      <% if current_user.type_user == 0 %>
+        <%= link_to edit_product_path(@product.id) do %>
+          <button type="button" class="btn btn-primary">+ EDIT PRODUCT</button>
+        <% end %>
       <% end %>
     </div>
   </div>
