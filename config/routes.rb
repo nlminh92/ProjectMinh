@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   resources :notifies
   resources :collection_brand
   resources :product_brand
+  resources :my_orders
 
 #   devise_for :users, :controllers => {
 #   sessions: 'user/sessions'

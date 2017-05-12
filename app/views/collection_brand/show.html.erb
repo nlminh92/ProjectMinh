@@ -1,8 +1,16 @@
 <div id="page-wrapper">
   <div class="row" style="margin-top: 20px;">
-    <div class="col-md-2">
+    <div class="col-md-7">
       <h4>COLLECTIONS</h4>
     </div>
+    <div class="col-md-4">
+      <% if @check %>
+        <form class="form-horizontal form-label-left form" method="POST" action="/collection_brand?id=<%=@brand.id%>" accept-charset="utf-8">
+          <b>You don't have new card for this brand</b>
+          <button type="submit" class="btn btn-primary">+ CREATE CARD</button>
+        </form>
+      <% end %>
+    </div></br>
 <div class="col-md-10">
 </div>
     <div class="col-md-12">

@@ -72,10 +72,11 @@ class CollectionsController < ApplicationController
     end
 
     @colection.save
-
-    @products.each do |i|
-      product = Product.find_by(id: i)
-      product.update_attributes(collection_id: @colection.id)
+    if @products.present?
+      @products.each do |i|
+        product = Product.find_by(id: i)
+        product.update_attributes(collection_id: @colection.id)
+      end
     end
     redirect_to @colection
   end

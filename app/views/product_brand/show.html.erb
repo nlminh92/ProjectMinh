@@ -3,10 +3,6 @@
     <div class="col-md-8">
       <h3>PRODUCTS</h3>
     </div>
-     <div class="col-md-3">
-      <form class="form-horizontal form-label-left form" method="POST" action="/product_brand" accept-charset="utf-8">
-        <button type="submit" class="btn btn-primary">+ CREATE CARD</button>
-      </form>
     </div></br>
 
     <div class="col-md-12">
@@ -20,6 +16,10 @@
             <th>Gender</th>
             <th>Status</th>
             <th>View</th>
+            <% if @check %>
+              <th>Number</th>
+              <th>Order</th>
+            <% end %>
           </tr>
         </thead>
         <tbody>
@@ -36,6 +36,13 @@
               <td>InActive</td>
             <% end %>
             <td><%= link_to "View", product_path(product.id) %></td>
+            <% if @check %>
+              <form method="POST" action="/product_brand?id=<%=@brand.id%>">
+                <input type="hidden" value="<%= product.id %>" name="product">
+                <td><input type="number" name="number" size="4" required="true"></td>
+                <td><button type="submit" class="btn btn-primary">Order</button></td>
+              </form>
+            <% end %>
           </tr>
         <% end %>
         </tbody>
@@ -77,5 +84,9 @@
 
 #myTable tr.header, #myTable tr:hover {
   background-color: #f1f1f1;
+}
+
+input[type="number"] {
+  width:50px;
 }
 </style>

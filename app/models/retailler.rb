@@ -3,4 +3,5 @@ class Retailler < ApplicationRecord
   mount_uploader :logo, ImageUploader
   has_many :connections
   has_many :collections
+  has_many :cards
 end

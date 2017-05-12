@@ -4,5 +4,6 @@ class CartController < ApplicationController
 
   def show
     @card = Card.find_by id: params[:id]
+    @orders = @card.orders
   end
 end
