@@ -35,7 +35,11 @@
                 <td><img src="<%= collection.image %>" alt="" class="image-product"></td>
                 <td><%= collection.name_collections %></td>
                 <td><%= collection.products.count %></td>
-                <td>Active</td>
+                <% if collection.status == true %>
+                  <td>Active</td>
+                <% else %>
+                  <td>InActive</td>
+                <% end %>
                 <td><%= link_to "View", collection_path(collection.id) %></td>
                 <td><%= collection.lookbook %></td>
               </tr>

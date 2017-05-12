@@ -37,7 +37,7 @@
                 <td>Active</td>
                 <td><%= link_to "View", collection_path(collection.id) %></td>
                 <td><%= collection.lookbook %></td>
-                <td><%= link_to "View Products", product_brand_path(collection.id) %></td>
+                <td><%= link_to "View Products", product_brand_path(collection.id), data: { turbolinks: false } %></td>
               </tr>
           <% end %>
         </tbody>
