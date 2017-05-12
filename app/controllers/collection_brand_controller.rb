@@ -17,7 +17,8 @@ class CollectionBrandController < ApplicationController
 
   def create
     @card = Card.new(brand_id: params[:id],
-      retailler_id: current_user.retailler.id,
+      retailler_id: current_user.retailler.id, total: 0,
+      count: 0, all_total: 0,
       status: 0, shipping: 5.0)
     @card.save
     redirect_to collection_brand_path(@card.brand_id)
