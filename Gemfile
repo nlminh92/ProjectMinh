@@ -13,7 +13,7 @@ gem 'carrierwave', '~> 1.0'
 
 group :test do
 	gem 'sqlite3'
-  # gem "mysql2", "~> 0.3.20"
+  gem "mysql2", "~> 0.3.20"
 end
 # group :development, :production do
 #   	gem 'pg'
@@ -21,7 +21,7 @@ end
 #   # gem "mysql2", "~> 0.3.20"
 # end
 group :development, :production do
-  gem 'pg'
+  # gem 'pg'
   gem "mysql2", "~> 0.3.20"
    gem 'rails_12factor'
 end

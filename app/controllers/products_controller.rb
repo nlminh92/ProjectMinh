@@ -66,6 +66,8 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.permit :type_sell, :name_products, :image, :code, :price, :season, :supplier_sku, :gender, :size, :description
+    params.permit :type_sell, :name_products, :image,
+     :code, :price, :season, :supplier_sku,
+     :gender, :size, :description, :active
   end
 end
