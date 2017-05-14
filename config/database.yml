@@ -1,32 +1,32 @@
-default: &default
-  adapter: mysql2
-  encoding: utf8
-  pool: 5
-  username: root
-  password: cubin1905
-  socket: /var/run/mysqld/mysqld.sock
-
-development:
-  <<: *default
-  database: monika
-test:
-  <<: *default
-  database: ThesisMgr_test
-
-production:
-  <<: *default
-  database: monika
-  username: ThesisMgr
-  password: <%= ENV['THESISMGR_DATABASE_PASSWORD'] %>
-
 # default: &default
-#   adapter: sqlite3
+#   adapter: mysql2
+#   encoding: utf8
 #   pool: 5
-#   timeout: 5000
+#   username: root
+#   password: cubin1905
+#   socket: /var/run/mysqld/mysqld.sock
 
 # development:
 #   <<: *default
-#   database: db/development.sqlite3
+#   database: monika
+# test:
+#   <<: *default
+#   database: ThesisMgr_test
+
+# production:
+#   <<: *default
+#   database: monika
+#   username: ThesisMgr
+#   password: <%= ENV['THESISMGR_DATABASE_PASSWORD'] %>
+
+default: &default
+  adapter: sqlite3
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: db/development.sqlite3
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
