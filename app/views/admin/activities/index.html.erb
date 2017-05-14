@@ -1,0 +1,89 @@
+<div id="page-wrapper">
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">User Manager(<%= @active_user.count %>)</a></li>
+    <li><a data-toggle="tab" href="#menu">Order Manager(<%= @active_card.count %>)</a></li>
+  </ul>
+<div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <div class="col-md-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>User ID</th>
+              <th>User avatar</th>
+              <th>User email</th>
+              <th>Company</th>
+              <th>Website</th>
+              <th>Type</th>
+              <th>Active</th>
+                <th>View</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @active_user.each_with_index do |user, index| %>
+                <tr>
+                  <td><%= index + 1 %></td>
+                  <% unless user.avatar.blank? %>
+                    <td><img src="<%= user.avatar %>" alt="" class="image-product"></td>
+                  <% else %>
+                    <td><img src="/img/user.jpg" alt="" class="image-product"></td>
+                  <% end %>
+                  <td><%= user.email %></td>
+                  <td><%= user.company %></td>
+                  <td><%= user.website %></td>
+                  <% if user.type_user == 0 %>
+                    <td>Brand</td>
+                  <% else %>
+                    <td>Retailler</td>
+                  <% end %>
+                  <% if user.activated %>
+                    <td>Active</td>
+                  <% else %>
+                    <td>Not active</td>
+                  <% end %>
+                  <td><%= link_to "View", profile_path(user.id) %></td>
+                </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div id="menu" class="tab-pane fade in">
+      <div class="col-md-12">
+        <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Retailler Name</th>
+                <th>Brand Name</th>
+                <th>Total</th>
+                <th>Activity</th>
+                <th>View</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% @active_card.each_with_index do |card, index| %>
+                    <tr>
+                      <td><%= index + 1 %></td>
+                      <td><%= card.retailler.name %></td>
+                      <td><%= card.brand.name %></td>
+                      <td><%= card.all_total %>$</td>
+                      <% if card.status == 2 %>
+                        <td>Not Active</td>
+                      <% else %>
+                        <td>Active</td>
+                      <% end %>
+                      <td><%= link_to "View", cart_path(card.id) %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+          </table>
+      </div>
+    </div>
+</div>
+<style>
+.image-product {
+  width: 80px;
+  height: 80px;
+}
+</style>
