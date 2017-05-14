@@ -23,9 +23,9 @@
             </tr>
           </thead>
           <tbody>
-            <% @users.each do |user| %>
+            <% @users.each_with_index do |user, index| %>
                 <tr>
-                  <td><%= user.id %></td>
+                  <td><%= index + 1 %></td>
                   <% unless user.avatar.blank? %>
                     <td><img src="<%= user.avatar %>" alt="" class="image-product"></td>
                   <% else %>

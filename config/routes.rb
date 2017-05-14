@@ -39,5 +39,6 @@ Rails.application.routes.draw do
     resources :actives
     resources :active_orders
     resources :notifies
+    resources :activities
   end
 end
