@@ -6,9 +6,10 @@ class MyOrdersController < ApplicationController
   def index
     @carded = Card.where(retailler_id: current_user.retailler.id,
       status: 5)
-    @caring = Card.where(retailler_id: current_user.retailler.id,
-      status: 0)
-    @array = [1, 3]
+    @array_2 = [0 , 3]
+    @caring = Card.where("retailler_id = ? and status in (?)", current_user.retailler.id,
+      @array_2)
+    @array = [1]
     @carings = Card.where("retailler_id = ? and status in (?)", current_user.retailler.id,
       @array)
   end

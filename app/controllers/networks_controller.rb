@@ -12,4 +12,5 @@ class NetworksController < ApplicationController
       @connecting = Connection.where("retailler_id=? and status = 0", current_user.retailler.id)
     end
   end
+
 end

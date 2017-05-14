@@ -60,4 +60,14 @@ class ConnectionsController < ApplicationController
     end
     redirect_to connections_url
   end
+
+  def destroy
+    @connect = Connection.find_by id: params[:id]
+    if @connect.destroy
+      flash[:success] = "Delete connect success"
+    else
+      flash[:danger] = "Delete connect fail"
+    end
+    redirect_to networks_url
+  end
 end

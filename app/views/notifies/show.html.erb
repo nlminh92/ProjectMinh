@@ -1,6 +1,7 @@
 <div id="page-wrapper">
   <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#home">Admin sent(<%= @card_send.count %>)</a></li>
+    <li class="active"><a data-toggle="tab" href="#home">Admin accept and sent(<%= @card_send.count %>)</a></li>
+    <li><a data-toggle="tab" href="#menu">Admin Not Accept(<%= @card_admin_fail.count %>)</a></li>
   </ul>
 <div class="tab-content">
     <div id="home" class="tab-pane fade in active">
@@ -9,6 +10,18 @@
           <% @card_send.each_with_index do |i, index| %>
             <%= link_to brand_order_path(1), data: {"turbolinks" => false}  do %>
                 <li style="margin-top: 20px;"><%= index + 1 %>.Admin sent: <b>Retailler: <%= i.retailler.name %></b> want to order to <b>Brand: <%= i.brand.name %></b></li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
+    <div id="menu" class="tab-pane fade in">
+      <div class="col-md-12">
+        <ul class="list-group">
+          <% @card_admin_fail.each_with_index do |i, index| %>
+            <%= link_to my_orders_path, data: {"turbolinks" => false}  do %>
+                <li style="margin-top: 20px;"><%= index + 1 %>.Admin not accept order: "<b>Retailler: <%= i.retailler.name %></b> want to order to <b>Brand: <%= i.brand.name %></b>"</li>
             <% end %>
           <% end %>
         </ul>
