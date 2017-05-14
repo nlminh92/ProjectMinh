@@ -22,8 +22,8 @@ end
 # end
 group :development, :production do
 	# gem 'sqlite3'
-  gem 'pg'
-  # gem "mysql2", "~> 0.3.20"
+  # gem 'pg'
+  gem "mysql2", "~> 0.3.20"
    gem 'rails_12factor'
 end
 
