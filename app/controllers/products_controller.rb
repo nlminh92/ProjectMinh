@@ -67,6 +67,18 @@ class ProductsController < ApplicationController
     redirect_to @product
   end
 
+  def destroy
+    @product = Product.find_by id: params[:id]
+    @product_id = Order.where(product_id: params[:id])
+    unless @product_id.present?
+      @product.destroy
+      flash[:success] = "Delete collection success"
+    else
+      flash[:danger] = "Delete fail, product is not disponible, contacter admin"
+    end
+    redirect_to products_url
+  end
+
   private
 
   def product_params

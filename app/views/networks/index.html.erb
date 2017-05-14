@@ -51,6 +51,7 @@
                     <td>Connected</td>
                     <td><%= link_to "View", profile_path(connect.brand.user.id) %></td>
                     <td><%= link_to "View Collections", collection_brand_path(connect.brand.id) %></td>
+                    <td><%= link_to "Delete Connect", connection_path(connect.id), :method => :delete %></td>
                   </tr>
               <% end %>
             <% end %>

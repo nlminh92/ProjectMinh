@@ -113,4 +113,28 @@ class CollectionsController < ApplicationController
     end
     redirect_to @colection
   end
+
+  def destroy
+    @collection = Collection.find_by id: params[:id]
+    @product_id = @collection.products.pluck(:id)
+    @cards = Card.where("brand_id = ?", current_user.brand.id)
+    @check = true
+    @cards.each do |card|
+      card.orders.each do |order|
+        @product_id.each do |id|
+          if id == order.product_id
+            @check = false
+            break
+          end
+        end
+      end
+    end
+    if @check
+      @collection.destroy
+      flash[:success] = "Delete collection success"
+    else
+      flash[:danger] = "Delete fail, collection is not disponible, contacter admin"
+    end
+    redirect_to collections_url
+  end
 end

@@ -10,7 +10,9 @@
 
           <div class="col-md-4">
             <div class="col-md-6">
-              <button class="btn btn-default" type="reset" name="reset">DELETE</button>
+              <%= link_to collection_path(@collection.id), method: :delete do %>
+                <button class="btn btn-default" type="reset" name="reset">DELETE</button>
+              <% end %>
             </div>
             <div class="col-md-6">
               <%= link_to edit_collection_path(@collection.id) do %>
