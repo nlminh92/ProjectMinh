@@ -14,7 +14,12 @@ class CollectionsController < ApplicationController
 
   def show
     @collection = Collection.find_by id: params[:id]
-    @product = Product.where(collection_id: params[:id])
+    if params[:file] == "1"
+      send_file Rails.root.join('public', "lookbooks", @collection.lookbook),
+        :type =>"application/pdf",:x_sendfile => true
+    else
+      @product = Product.where(collection_id: params[:id])
+    end
   end
 
   def edit
@@ -34,15 +39,34 @@ class CollectionsController < ApplicationController
       i.update_attributes(collection_id: nil)
     end
     @collection = Collection.find_by id: params[:id]
-    @collection.update_attributes(name_collections: params[:title],
-      image: params[:picture],
-      status: params[:optradio],
-      description: params[:description],
-      date_availability: params[:available])
+    if params[:picture].present?
+      @collection.update_attributes(name_collections: params[:title],
+        image: params[:picture],
+        status: params[:optradio],
+        description: params[:description],
+        date_availability: params[:available])
+    else
+      @collection.update_attributes(name_collections: params[:title],
+        status: params[:optradio],
+        description: params[:description],
+        date_availability: params[:available])
+    end
+    if params[:lookbook].present?
+      pdf_file_name_output = 5.times.collect{[*'1'..'9'].sample}.join + Time.now.to_i.to_s + ".pdf"
+      upload_lookbook = params[:lookbook]
+      File.open(Rails.root.join('public', 'lookbooks',
+        pdf_file_name_output), 'wb') do |file|
+        file.write(upload_lookbook.read)
+      end
+      tmp = pdf_file_name_output
+      @collection.update_attributes(lookbook: tmp.to_s)
+    end
     @products = params[:products]
-    @products.each do |i|
-      product = Product.find_by(id: i)
-      product.update_attributes(collection_id: params[:id])
+    if @products.present?
+      @products.each do |i|
+        product = Product.find_by(id: i)
+        product.update_attributes(collection_id: params[:id])
+      end
     end
     redirect_to collection_path(params[:id])
   end
@@ -64,7 +88,15 @@ class CollectionsController < ApplicationController
     @colection.status = params[:optradio]
     @colection.description = params[:description]
     @colection.date_availability = params[:available]
-    @colection.lookbook = params[:lookbook]
+    if params[:lookbook].present?
+      pdf_file_name_output = 5.times.collect{[*'1'..'9'].sample}.join + Time.now.to_i.to_s + ".pdf"
+      upload_lookbook = params[:lookbook]
+      File.open(Rails.root.join('public', 'lookbooks',
+        pdf_file_name_output), 'wb') do |file|
+        file.write(upload_lookbook.read)
+      end
+      @colection.lookbook = pdf_file_name_output
+    end
     @products = params[:products]
     if current_user.type_user == 0
       @colection.brand_id = current_user.brand.id
