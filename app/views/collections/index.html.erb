@@ -41,7 +41,11 @@
                   <td>InActive</td>
                 <% end %>
                 <td><%= link_to "View", collection_path(collection.id) %></td>
-                <td><%= collection.lookbook %></td>
+                <% if collection.lookbook.present? %>
+                  <td><%= link_to "Download", collection_path(collection.id, file: 1) %></td>
+                <% else %>
+                  <td>Don't have lookbook</td>
+                <% end %>
               </tr>
           <% end %>
         </tbody>

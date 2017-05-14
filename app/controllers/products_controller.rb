@@ -32,7 +32,11 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find_by id: params[:id]
-    @product.update_attributes(product_params)
+    if params[:image].present?
+      @product.update_attributes(product_params)
+    else
+      @product.update_attributes(product_params_2)
+    end
     redirect_to product_path(params[:id])
   end
 
@@ -67,6 +71,11 @@ class ProductsController < ApplicationController
 
   def product_params
     params.permit :type_sell, :name_products, :image,
+     :code, :price, :season, :supplier_sku,
+     :gender, :size, :description, :active
+  end
+  def product_params_2
+    params.permit :type_sell, :name_products,
      :code, :price, :season, :supplier_sku,
      :gender, :size, :description, :active
   end
