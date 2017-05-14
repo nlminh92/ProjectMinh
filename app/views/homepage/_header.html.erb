@@ -12,7 +12,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    
+
                     <li>
                         <%= link_to 'Showrooms', homes_path %>
                     </li>
@@ -33,11 +33,13 @@
                         <%= link_to 'About', contacts_path %>
                     </li>
 
-                    
+
                     <% if user_signin %>
-                      <li>
-                        <%= link_to 'Site managers', homes_path %>
-                      </li>
+                      <% if user_signin_active %>
+                        <li>
+                          <%= link_to 'Site managers', homes_path %>
+                        </li>
+                      <% end %>
                       <li>
                           <%= link_to 'logout', destroy_user_session_path, :method => :delete %>
                       </li>
