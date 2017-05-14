@@ -5,7 +5,9 @@ class MyOrdersController < ApplicationController
 
   def index
     @carded = Card.where(retailler_id: current_user.retailler.id,
-      status: 5)
+      status: 5, pay: nil)
+    @carded_pay = Card.where(retailler_id: current_user.retailler.id,
+      status: 5, pay: 1)
     @array_2 = [0 , 3]
     @caring = Card.where("retailler_id = ? and status in (?)", current_user.retailler.id,
       @array_2)

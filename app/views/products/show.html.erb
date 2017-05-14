@@ -3,13 +3,18 @@
     <div class="col-md-2">
       <h4>PRODUCTS</h4>
     </div>
-    <div class="col-md-4 col-md-offset-2">
+    <div class="col-md-4 col-md-offset-1">
       <% if @product.active %>
         <p style="font-size:18px;">Product Status:    Active</p>
       <% else %>
         <p style="font-size:18px;">Product Status:    InActive</p>
       <% end %>
     </div>
+    <div class="col-md-1">
+      <%= link_to product_path(@product.id), method: :delete do %>
+          <button class="btn btn-default" type="reset" name="reset">DELETE</button>
+        <% end %>
+      </div>
     <div class="col-md-3 col-md-offset-1">
       <% if current_user.type_user == 0 %>
         <%= link_to edit_product_path(@product.id) do %>

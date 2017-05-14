@@ -14,6 +14,8 @@
               <th>Brand Name</th>
               <th>Total</th>
               <th>View Profile</th>
+              <th>Pay</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -23,6 +25,8 @@
                     <td><%= card.brand.name %></td>
                     <td><%= card.all_total %></td>
                     <td><%= link_to "View", cart_path(card.id) %></td>
+                    <th><button class="btn btn-success">Pay</button></th>
+                    <td><%= link_to "Delete", cart_path(card.id), method: :delete %></td>
                   </tr>
               <% end %>
           </tbody>
@@ -38,6 +42,7 @@
               <th>Brand Name</th>
               <th>Total</th>
               <th>View</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -47,6 +52,7 @@
                     <td><%= card.brand.name %></td>
                     <td><%= card.all_total %></td>
                     <td><%= link_to "View", cart_path(card.id) %></td>
+                    <td><%= link_to "Delete", cart_path(card.id), method: :delete %></td>
                   </tr>
               <% end %>
           </tbody>
@@ -63,6 +69,7 @@
               <th>Brand Name</th>
               <th>Total</th>
               <th>View</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -72,6 +79,7 @@
                     <td><%= card.brand.name %></td>
                     <td><%= card.all_total %></td>
                     <td><%= link_to "View", cart_path(card.id) %></td>
+                    <td><%= link_to "Delete", cart_path(card.id), method: :delete %></td>
                   </tr>
               <% end %>
           </tbody>
