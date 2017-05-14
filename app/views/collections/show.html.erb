@@ -1,22 +1,24 @@
 <div id="page-wrapper">
   <div>
       <div class="row" style="border-bottom: 1px solid black;">
-        <div class="col-md-8" style="border-right: 1px solid black;">
-          <div class="col-md-6">
-            <h4>ADD NEW COLLECTION</h4>
+        <% if current_user.type_user == 0 %>
+          <div class="col-md-8" style="border-right: 1px solid black;">
+            <div class="col-md-6">
+              <h4>ADD NEW COLLECTION</h4>
+            </div>
           </div>
-        </div>
 
-        <div class="col-md-4">
-          <div class="col-md-6">
-            <button class="btn btn-default" type="reset" name="reset">DELETE</button>
+          <div class="col-md-4">
+            <div class="col-md-6">
+              <button class="btn btn-default" type="reset" name="reset">DELETE</button>
+            </div>
+            <div class="col-md-6">
+              <%= link_to edit_collection_path(@collection.id) do %>
+              <button class="btn btn-success" id="send" type="submit">EDIT</button>
+              <% end %>
+            </div>
           </div>
-          <div class="col-md-6">
-            <%= link_to edit_collection_path(@collection.id) do %>
-            <button class="btn btn-success" id="send" type="submit">EDIT</button>
-            <% end %>
-          </div>
-        </div>
+        <% end %>
       </div>
 
       <div class="row">

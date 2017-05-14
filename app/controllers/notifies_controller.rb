@@ -17,6 +17,7 @@ class NotifiesController < ApplicationController
     # 4 brand khong thanh cong
     # 5 brand thanh cong
     @card_send = Card.where(status: 3).order('updated_at DESC')
+    @card_admin_fail = Card.where(status: 2).order('updated_at DESC')
   end
 
   def retailler
