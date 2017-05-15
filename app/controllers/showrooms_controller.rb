@@ -1,0 +1,2 @@
+class ShowroomsController < ApplicationController
+end
