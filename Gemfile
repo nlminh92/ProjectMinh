@@ -10,6 +10,7 @@ gem 'devise', '4.0'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'rails', '~> 5.0.1'
 gem 'carrierwave', '~> 1.0'
+gem 'paypal-sdk-rest'
 
 group :test do
 	gem 'sqlite3'
