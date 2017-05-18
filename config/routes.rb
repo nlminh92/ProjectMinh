@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   get 'cart/index'
   resources :showrooms
   get 'showrooms/index'
+  resources :abouts
+  get 'abouts/index'
   resources :profiles
   resources :connections
   resources :networks
