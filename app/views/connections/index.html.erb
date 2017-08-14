@@ -27,14 +27,16 @@
           <% @retaillers.each do |retailler| %>
               <tr>
                 <td><%= retailler.id %></td>
-                <% if retailler.user.avatar.blank? %>
-                  <td><img src="/img/user.jpg" alt="" class="image-product"></td>
-                <% else %>
-                  <td><img src="<%= retailler.user.avatar %>" alt="" class="image-product"></td>
+                <% if retailler.user.present? %>
+                  <% if retailler.user.avatar.blank? %>
+                    <td><img src="/img/user.jpg" alt="" class="image-product"></td>
+                  <% else %>
+                    <td><img src="<%= retailler.user.avatar %>" alt="" class="image-product"></td>
+                  <% end %>
+                  <td><%= retailler.name %></td>
+                  <td><input type="checkbox" value="<%= retailler.id %>" name="retailler[]">Connect</td>
+                  <td><%= link_to "View", profile_path(retailler.user.id) %></td>
                 <% end %>
-                <td><%= retailler.name %></td>
-                <td><input type="checkbox" value="<%= retailler.id %>" name="retailler[]">Connect</td>
-                <td><%= link_to "View", profile_path(retailler.user.id) %></td>
               </tr>
           <% end %>
         </tbody>
