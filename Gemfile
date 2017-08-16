@@ -12,6 +12,11 @@ gem 'rails', '~> 5.0.1'
 gem 'carrierwave', '~> 1.0'
 gem 'paypal-sdk-rest'
 
+gem 'capistrano-bundler', '~> 1.1.2'
+gem 'capistrano-rails', '~> 1.1.1'
+
+gem 'capistrano-rvm'
+
 group :test do
 	gem 'sqlite3'
   # gem "mysql2", "~> 0.3.20"
@@ -22,6 +27,7 @@ end
 #   # gem "mysql2", "~> 0.3.20"
 # end
 group :development, :production do
+  gem 'capistrano', '~> 3.8.1'
 	# gem 'sqlite3'
   gem 'pg'
   # gem "mysql2", "~> 0.3.20"
