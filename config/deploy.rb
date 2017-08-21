@@ -1,7 +1,7 @@
 # config valid only for current version of Capistrano
 lock "3.8.2"
 
-set :application, "Project"
+set :application, "project"
 set :repo_url, "git@github.com:nlminh92/ProjectMinh.git"
 
 set :user,            'leminh'
