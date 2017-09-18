@@ -1,2 +1,0 @@
-class ShowroomsController < ApplicationController
-end
