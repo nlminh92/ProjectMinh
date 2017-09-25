@@ -13,20 +13,10 @@ Rails.application.routes.draw do
   resources :products
   resources :collections
   get 'products/new'
-  resources :brands
-  get 'brands/index'
-  resources :retailers
-  get 'retailers/index'
-  resources :blogs
-  get 'blogs/index'
-  resources :contacts
-  get 'contacts/index'
   resources :cart
   get 'cart/index'
-  resources :showrooms
-  get 'showrooms/index'
-  resources :abouts
-  get 'abouts/index'
+  resources :dashboardretailer
+  get 'dashboardretailer/index'
   resources :profiles
   resources :connections
   resources :networks

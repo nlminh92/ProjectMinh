@@ -1,0 +1,2 @@
+class DashboardretailerController < ApplicationController
+end
