@@ -26,8 +26,10 @@
     <% if user_signin %>
       <div id="wrapper">
         <%= render "layout_login/header" %>
-        <% if user_signin_active %>
+        <% if current_user.activated && current_user.type_user != 1 %>
           <%= render "layout_login/slidebar" %>
+          <% else %>
+          <%= render "layout_login/retailerform" %>
         <% end %>
         <%= yield %>
       </div>
