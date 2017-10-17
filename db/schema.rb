@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171017105047) do
+ActiveRecord::Schema.define(version: 20171017111207) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20171017105047) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "seen"
+    t.integer  "showroom"
     t.index ["brand_id"], name: "index_connections_on_brand_id", using: :btree
     t.index ["retailler_id"], name: "index_connections_on_retailler_id", using: :btree
   end
@@ -178,10 +179,12 @@ ActiveRecord::Schema.define(version: 20171017105047) do
     t.integer  "brand_id"
     t.integer  "retailler_id"
     t.string   "avatar"
+    t.integer  "showroom_id"
     t.index ["brand_id"], name: "index_users_on_brand_id", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["retailler_id"], name: "index_users_on_retailler_id", using: :btree
+    t.index ["showroom_id"], name: "index_users_on_showroom_id", using: :btree
   end
 
   add_foreign_key "cards", "brands"
@@ -197,4 +200,5 @@ ActiveRecord::Schema.define(version: 20171017105047) do
   add_foreign_key "products", "retaillers"
   add_foreign_key "users", "brands"
   add_foreign_key "users", "retaillers"
+  add_foreign_key "users", "showrooms"
 end

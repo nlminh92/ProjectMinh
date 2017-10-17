@@ -3,6 +3,7 @@ class CreateConnections < ActiveRecord::Migration[5.0]
     create_table :connections do |t|
       t.references :brand, foreign_key: true
       t.references :retailler, foreign_key: true
+      t.references :showroom, foreign_key: true
       t.integer :status
 
       t.timestamps
