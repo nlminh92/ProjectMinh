@@ -1,0 +1,2 @@
+class AddDescriptionToShowroom < ApplicationRecord
+end
