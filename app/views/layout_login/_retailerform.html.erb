@@ -1,177 +1,89 @@
 
-  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <div class="flight-engine">
-                 <div class="container">
-                    <div class="tabing">
-                       <ul>
-                          <li><a class="active" href="#1"><i class="fa fa-user" aria-hidden="true"></i> Search</a>
-                          </li>
-                       </ul>
-                       <div class="tab-content">
-                          <div id="1" class="tab1 active">
-                             <div class="flight-tab row">
-                                <div class="persent-one">
-                                   <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                   <input type="text" name="dep" class="textboxstyle" id="dep" placeholder="Que recherchez-vous">
-                                </div>
-                                <div class="persent-one less-per">
-                                   <i class="fa fa-calendar" aria-hidden="true"></i>
-                                   <input type="text" name="dep" class="textboxstyle" id="from-date1" placeholder="Product">
-                                </div>
-                                <div class="persent-one less-per">
-                                   <i class="fa fa-calendar" aria-hidden="true"></i>
-                                   <input type="text" name="dep" class="textboxstyle" id="to-date" placeholder="Country">
-                                </div>
-                                <div class="persent-one">
-                                   <i class="fa fa-user" aria-hidden="true"></i>
-                                   <div class="textboxstyle" id="passenger">Collection</div>
-                                </div>
-                                <div class="persent-one less-btn">
-                                   <input type="Submit" name="submit" value="Search" class="btn btn-info cst-btn" id="srch">
-                                </div>
-                             </div>
-                             <!-- flight tab -->
-                          </div>
-                          <!-- tab 1 -->
-                           <div id="2" class="tab1">
-                             <div class="flight-tab row">
-                                <div class="persent-one">
-                                   <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                   <input type="text" name="dep" class="textboxstyle" id="dep" placeholder="From City or airport">
-                                </div>
-                                <div class="persent-one">
-                                   <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                   <input type="text" name="dep" class="textboxstyle" id="arival" placeholder="To City or airport">
-                                </div>
-                                <div class="persent-one less-per">
-                                   <i class="fa fa-calendar" aria-hidden="true"></i>
-                                   <input type="text" name="dep" class="textboxstyle" id="from-date1" placeholder="Depart">
-                                </div>
-                                <div class="persent-one less-per">
-                                   <i class="fa fa-calendar" aria-hidden="true"></i>
-                                   <input type="text" name="dep" class="textboxstyle" id="to-date" placeholder="Returrn">
-                                </div>
-                                <div class="persent-one">
-                                   <i class="fa fa-user" aria-hidden="true"></i>
-                                   <div class="textboxstyle" id="passenger">01 Passenger</div>
-                                </div>
-                                <div class="persent-one less-btn">
-                                   <input type="Submit" name="submit" value="Search" class="btn btn-info cst-btn" id="srch">
-                                </div>
-                             </div>
-                             <!-- flight tab -->
-                          </div>
-                          <!-- tab 1 -->
-                       </div>
-                       </div>
-                       <!-- tab content -->
-                    </div>
-                    <!-- tabbing -->
-                 </div>
-              </div>
+  <div class="row" style="margin-top: 20px;">
+    <div class="col-md-8">
+      <h3>PRODUCTS</h3>
+    </div>
+<!--     <div class="col-md-3 col-md-offset-4">
+      <button type="button" class="btn btn-default">DOWNLOAD PRODUCT LIST</button>
+    </div> -->
+<!--     <div class="col-md-12">
+      <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+    </div> -->
+
+<div class="col-md-10">
+    <%= form_tag(homes_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Products" %>
+    <%= submit_tag "Search" %>
+<% end %>
+</div>
+
+    <div class="col-md-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Name</th>
+            <th>Style Code</th>
+            <th>Sell Type</th>
+            <th>Gender</th>
+            <th>Status</th>
+            <th>View</th>
+          </tr>
+        </thead>
+        <tbody>
+         <% @products.each do |product| %>
+          <tr>
+            <td><img src="<%= product.image %>" class="image-product"></td>
+            <td><%= product.name_products %></td>
+            <td><%= product.code %></td>
+            <td><%= product.type_sell %></td>
+            <td><%= product.gender.gsub!("[", "").gsub!("]", "") %></td>
+            <% if product.active == true %>
+              <td>Active</td>
+            <% else %>
+              <td>InActive</td>
+            <% end %>
+            <td><%= link_to "View", product_path(product.id) %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
 <style>
-.flight-engine {
-    position: absolute;
-    left: 0px;
-    right: 0px;
-    bottom: 410px;
-    padding: 20px;
-    z-index: 999;
+.image-product {
+  width: 100px;
+  height: 100px;
 }
-.tab1.active {
-    display: block
+#myInput {
+  background-image: url('img/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
 }
-.tab1 {
-    display: none
+
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
 }
-.tabing {
-    float: left;
-    width: 100%;
-    background: rgba(0, 130, 185, .8);
-    padding: 0 10px 10px 10px;
-    color: #fff;
+
+#myTable th, #myTable td {
+  text-align: left;
+  padding: 12px;
 }
-.tabing ul {
-    margin: 0px;
-    padding: 0px;
-    list-style: none;
-    width: 100%;
-    float: left;
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;
 }
-.tabing ul li {
-    float: left;
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
 }
-.tabing ul li a {
-    display: block;
-    padding: 5px;
-    text-decoration: none;
-    color: #fff;
-    background: rgba(0, 130, 185, .9);
-    margin: 0 10px 0 0;
-    padding: 5px 10px 5px 10px;
-    border-radius: 0px 0px 5px 5px;
-    font-size: 16px;
-    text-align: left;
-}
-.tabing ul li a.active {
-    background: #ba0400
-}
-.flight-tab {
-    width: 100%;
-    float: left;
-    margin-top: 10px;
-    padding: 15px
-}
-.flight-tab .textboxstyle {
-    width: 100%;
-    float: left;
-    color: #191919;
-    padding: 8px 10px 8px 35px;
-    border: none;
-    border-radius: 3px;
-    background: #f5f5f5;
-    font-size: 14px;
-    line-height: 20px;
-}
-.persent-one {
-    width: 19%;
-    float: left;
-    margin-right: 1%;
-    position: relative;
-    margin-bottom: 10px;
-}
-.persent-one i {
-    position: absolute;
-    left: 10px;
-    top: 10px;
-    color: #191919;
-    font-size: 18px;
-}
-.persent-one.less-per {
-    width: 16%;
-    float: left;
-    margin-right: 1%;
-}
-.persent-one.less-btn {
-    width: 5%;
-    float: left;
-    margin-right: 1%;
-}
-.persent-one.less-btn .cst-btn {
-    width: 85px;
-    height: 85px;
-    border-radius: 100%;
-    position: absolute;
-    top: -32px;
-}$('.tabing ul li a').click(function(e) {
-         e.stopPropagation();
-         e.preventDefault();
-         var tabcont = $(this).attr('href');
-         console.log(tabcont);
-         $('.tabing a').removeClass('active');
-         $(this).addClass('active');
-         $('.tab1').hide();
-         $(tabcont).show();
-     });
 </style>

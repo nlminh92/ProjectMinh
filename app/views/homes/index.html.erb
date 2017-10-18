@@ -1,37 +1,29 @@
-<% if current_user.type_user == 1 %>
-<%= render "layout_login/retailerform" %>
-  
-  <% elsif current_user.type_user != 1 %>  
-  <div id="page-wrapper">
-  <h6>You are <b>
+<div id="page-wrapper">
+  <% if current_user.type_user == 1 %>
+  <%= render "layout_login/retailerform" %>
+
+  <% elsif current_user.type_user != 1 %>
+    <h6>You are <b>
     <% if current_user.type_user == 0 %>
       <p>Brand</p>
-    <% else current_user.type_user == 2 %>
+    <% elsif current_user.type_user == 2 %>
       <p>Admin</p>
+    <% elsif current_user.type_user == 3 %>
+      <p>Showroom</p>
     <% end %></b></h6>
-    
 
 
-  # <% else %>
-  #   <% if current_user.type_user == 0 %>
-  #     <p>Brand</p>
-  #     <h1>Account actived</h1
-  #   <% elsif current_user.type_user == 2 %>
-  #     <p>Admin</p>
-  #     <h1>Account actived</h1
-  #   <% else %>
-  #   <%= render "layout_login/retailerform" %>
-  #   <% end %>
+
+   <%# else %>
+     <%# if current_user.type_user == 0 %>
+       <!-- <p>Brand</p> -->
+       <!-- <h1>Account actived</h1 -->
+     <%# elsif current_user.type_user == 2 %>
+       <!-- <p>Admin</p> -->
+       <!-- <h1>Account actived</h1> -->
+     <%# else %>
+     <%#= render "layout_login/retailerform" %>
+     <%# end %>
   <% end %>
 </div>
-<style>
-# body{
-#   background:url('http://www.wallpaperup.com/uploads/wallpapers/2017/09/18/1099286/6513940df6f631e60140d43e229e1b2d.jpg');
-#   background-size:100% 100%;
-#   background-attachment: fixed;
-#   background-repeat:no-repeat;
-#   font-family: 'Open Sans', sans-serif;
-#   padding-bottom: 40px;
-# }
-</style>
 

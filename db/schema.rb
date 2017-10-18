@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171017111207) do
+ActiveRecord::Schema.define(version: 20171018141315) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -22,6 +22,9 @@ ActiveRecord::Schema.define(version: 20171017111207) do
     t.string   "instagram"
     t.string   "location"
     t.string   "contact"
+    t.integer  "accept"
+    t.integer  "showroom_id"
+    t.index ["showroom_id"], name: "index_brands_on_showroom_id", using: :btree
   end
 
   create_table "cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -64,6 +67,7 @@ ActiveRecord::Schema.define(version: 20171017111207) do
   create_table "connections", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "brand_id"
     t.integer  "retailler_id"
+    t.integer  "showroom_id"
     t.integer  "status"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
@@ -71,6 +75,7 @@ ActiveRecord::Schema.define(version: 20171017111207) do
     t.integer  "showroom"
     t.index ["brand_id"], name: "index_connections_on_brand_id", using: :btree
     t.index ["retailler_id"], name: "index_connections_on_retailler_id", using: :btree
+    t.index ["showroom_id"], name: "index_connections_on_showroom_id", using: :btree
   end
 
   create_table "countries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -142,12 +147,13 @@ ActiveRecord::Schema.define(version: 20171017111207) do
 
   create_table "showrooms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.string   "logo"
     t.text     "description", limit: 65535
     t.string   "facebook"
     t.string   "instagram"
+    t.integer  "number",                    default: 0
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -187,12 +193,14 @@ ActiveRecord::Schema.define(version: 20171017111207) do
     t.index ["showroom_id"], name: "index_users_on_showroom_id", using: :btree
   end
 
+  add_foreign_key "brands", "showrooms"
   add_foreign_key "cards", "brands"
   add_foreign_key "cards", "retaillers"
   add_foreign_key "collections", "brands"
   add_foreign_key "collections", "retaillers"
   add_foreign_key "connections", "brands"
   add_foreign_key "connections", "retaillers"
+  add_foreign_key "connections", "showrooms"
   add_foreign_key "orders", "cards"
   add_foreign_key "orders", "products"
   add_foreign_key "products", "brands"

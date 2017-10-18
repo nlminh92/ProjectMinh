@@ -12,20 +12,23 @@
                 </div>
             </li>
             <li>
-            <% if current_user.type_user != 1 %>
-                <a href="/homes"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                <% end %>
+            <a href="/homes"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
             </li>
-            <% if current_user.activated && current_user.type_user == 2 %>
-                <li><a href="/admin/actives"><i class="icon fa fa-list-alt fa-fw"></i>Active user</a></li>
+            <% if current_user.activated && current_user.type_user == 3 %>
+                <li onclick="window.location.reload(true)"><a href="/admin/active_connect"><i class="icon fa fa-file-o fa-fw" ></i>Active connect</a></li>
                 <li onclick="window.location.reload(true)"><a href="/admin/active_orders/1"><i class="icon fa fa-file-o fa-fw" ></i>Active order</a></li>
-                <li><a href="/admin/actives/1"><i class="icon fa fa-bar-chart-o fa-fw"></i>List User</a></li>
                 <li><a href="/admin/active_orders"><i class="icon fa fa-file-o fa-fw"></i>Orders</a></li>
                 <li><a href="/admin/notifies"><i class="icon fa fa-bar-chart-o fa-fw"></i>Notifition Order</a></li>
                 <li><a href="/admin/activities"><i class="icon fa fa-bar-chart-o fa-fw"></i>Activity</a></li>
             <% else %>
+            <% if current_user.type_user == 2 %>
+                <li><a href="/admin/actives"><i class="icon fa fa-list-alt fa-fw"></i>Active user</a></li>
+                <li><a href="/admin/actives/1"><i class="icon fa fa-bar-chart-o fa-fw"></i>List User</a></li>
+                <li><a href="/admin/activities"><i class="icon fa fa-bar-chart-o fa-fw"></i>Activity</a></li>
+            <% end %>
             <% if current_user.type_user == 0 %>
                 <li><a href="/profiles"><i class="icon fa fa-book fa-fw"></i>My profile</a></li>
+                <li><a href="/connection_showrooms"><i class="icon fa fa-list-alt fa-fw"></i>Connect with showroom</a></li>
                 <li><a href="/connections"><i class="icon fa fa-list-alt fa-fw"></i>Find Retaillers</a></li>
                 <li><a href="/networks"><i class="icon fa fa-file-o fa-fw"></i>My network</a></li>
                 <li><a href="/active_networks"><i class="icon fa fa-file-o fa-fw"></i>Active Connect</a></li>
@@ -36,7 +39,14 @@
                 <li><a href="/products"><i class="icon fa fa-tasks fa-fw"></i>My products</a></li>
                 <li><a href="/collections"><i class="icon fa fa-calendar fa-fw"></i>My collections</a></li>
             <% elsif current_user.type_user == 1 %>
-                <% end %>
+                <li><a href="/profiles"><i class="icon fa fa-book fa-fw"></i>My profile</a></li>
+                <li><a href="/networks"><i class="icon fa fa-file-o fa-fw"></i>My network</a></li>
+                <!-- <li><a href="/active_networks"><i class="icon fa fa-file-o fa-fw"></i>Active Connect</a></li> -->
+                <li><a href="/connections"><i class="icon fa fa-list-alt fa-fw"></i>Find Brands</a></li>
+                <li><a href="/notifies"><i class="icon fa fa-file-o fa-fw"></i>Notification(<%=  Connection.where(retailler_id: current_user.retailler.id, seen: 3).count %>)</a></li>
+                <li><a href="/retailler_notify"><i class="icon fa fa-file-o fa-fw"></i>Notification Order</a></li>
+                <li><a href="/my_orders"><i class="icon fa fa-bar-chart-o fa-fw"></i>My orders</a></li>
+            <% end %>
             <% end %>
         </ul>
     </div>

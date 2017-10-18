@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   resources :product_brand
   resources :my_orders
   resources :brand_orders
+  resources :connection_showrooms, only: [:index, :create]
   get "retailler_notify" => "notifies#retailler"
 
 #   devise_for :users, :controllers => {
@@ -37,5 +38,6 @@ Rails.application.routes.draw do
     resources :active_orders
     resources :notifies
     resources :activities
+    resources :active_connect
   end
 end

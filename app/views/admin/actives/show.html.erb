@@ -30,8 +30,10 @@
                   <td><%= user.website %></td>
                   <% if user.type_user == 0 %>
                     <td>Brand</td>
-                  <% else %>
+                  <% elsif user.type_user == 1 %>
                     <td>Retailler</td>
+                  <% else %>
+                    <td>ShowRoom</td>
                   <% end %>
                   <td><%= link_to "View", profile_path(user.id) %></td>
                 </tr>
