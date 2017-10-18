@@ -1,0 +1,83 @@
+<% if @check == 0 %>
+  <form action="/connection_showrooms" method="POST">
+    <div id="page-wrapper">
+      <div class="row" style="margin-top: 20px;">
+        <h4>Showrooms</h4>
+        <div class="col-md-3 col-md-offset-7">
+          <button type="submit" class="btn btn-primary">+ CONNECT</button>
+        </div>
+    </div>
+        <div class="col-md-12">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Logo</th>
+                <th>Name</th>
+                <th>Connect</th>
+                <th>View</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @showrooms.each do |showroom| %>
+                  <tr>
+                    <td><%= showroom.id %></td>
+                    <% if showroom.user.present? %>
+                      <% if showroom.user.avatar.blank? %>
+                        <td><img src="/img/user.jpg" alt="" class="image-product"></td>
+                      <% else %>
+                        <td><img src="<%= showroom.user.avatar %>" alt="" class="image-product"></td>
+                      <% end %>
+                      <td><%= showroom.name %></td>
+                      <td><input type="radio" value="<%= showroom.id %>" name="showroom">Connect</td>
+                    <% end %>
+                  </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </form>
+<% else %>
+
+  <div id="page-wrapper">
+      <% if @check == 2 %>
+        <h3>Waiting for showroom accept</h3>
+      <% end %>
+      <div class="row" style="margin-top: 20px;">
+        <h4>Showrooms</h4>
+      </div>
+        <div class="col-md-12">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Logo</th>
+                <th>Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= @showroom.id %></td>
+                <% if @showroom.user.present? %>
+                  <% if @showroom.user.avatar.blank? %>
+                    <td><img src="/img/user.jpg" alt="" class="image-product"></td>
+                  <% else %>
+                    <td><img src="<%= @showroom.user.avatar %>" alt="" class="image-product"></td>
+                  <% end %>
+                  <td><%= @showroom.name %></td>
+                <% end %>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+<% end %>
+<style>
+.image-product {
+  width: 100px;
+  height: 100px;
+}
+</style>

@@ -1,7 +1,7 @@
 class Admin::ActivesController < ApplicationController
   before_action :user_signin
   before_action :user_actived
-  before_action :admin
+  before_action :is_admin
 
   def index
     @users = User.where(activated: false)

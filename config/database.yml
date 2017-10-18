@@ -17,7 +17,7 @@ default: &default
   pool: 5
   wait_timeout: 300
   username: root
-  password: minhnam123
+  password: root
 #  socket: /tmp/mysql.sock
 
 development:

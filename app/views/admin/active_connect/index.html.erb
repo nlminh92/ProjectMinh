@@ -1,0 +1,60 @@
+<div id="page-wrapper">
+  <form action="/admin/active_connect" method="POST">
+    <div class="row" style="margin-top: 20px;">
+      <div class="col-md-2">
+        <h4>Admins</h4>
+      </div>
+      <div class="col-md-3 col-md-offset-7">
+        <button type="submit" class="btn btn-primary">+ ACTIVE CONNECT</button>
+      </div>
+      <div class="col-md-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>User ID</th>
+              <th>User avatar</th>
+              <th>User email</th>
+              <th>Company</th>
+              <th>Website</th>
+              <th>Type</th>
+              <th>Active</th>
+              <th>Not active</th>
+              <th>View</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @brands.each_with_index do |brand, index| %>
+                <tr>
+                  <td><%= index + 1 %></td>
+                  <% unless brand.user.avatar.blank? %>
+                    <td><img src="<%= brand.user.avatar %>" alt="" class="image-product"></td>
+                  <% else %>
+                    <td><img src="/img/user.jpg" alt="" class="image-product"></td>
+                  <% end %>
+                  <td><%= brand.user.email %></td>
+                  <td><%= brand.user.company %></td>
+                  <td><%= brand.user.website %></td>
+                  <% if brand.user.type_user == 0 %>
+                    <td>Brand</td>
+                  <% elsif brand.user.type_user == 1  %>
+                    <td>Retailler</td>
+                  <% else %>
+                    <td>ShowRoom</td>
+                  <% end %>
+                  <td><label><input type="radio" value="1_<%= brand.id %>" name="accept">Active</label></td>
+                  <td><label><input type="radio" value="0_<%= brand.id %>" name="accept">Not Active</label></td>
+                  <td><%= link_to "View", profile_path(brand.user.id) %></td>
+                </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </form>
+</div>
+<style>
+.image-product {
+  width: 80px;
+  height: 80px;
+}
+</style>

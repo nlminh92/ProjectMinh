@@ -28,10 +28,18 @@ class ApplicationController < ActionController::Base
   end
 
   def admin
-    if current_user.activated && current_user.type_user == Settings.admin
-      return true
+    if current_user.activated && current_user.type_user == 3
+      @showroom = current_user.showroom_id
     else
-      return false
+      redirect_to homes_path
+    end
+  end
+
+  def is_admin
+    if current_user.activated && current_user.type_user == Settings.admin
+      @showroom = current_user.showroom_id
+    else
+      redirect_to homes_path
     end
   end
 
@@ -43,19 +51,25 @@ class ApplicationController < ActionController::Base
   end
 
   def create_brand
-   if params[:user][:type_user] == Settings.brand
-     @brand = Brand.new(name: params[:user][:company])
-     @brand.save
-     if current_user.present?
+    if params[:user][:type_user] == Settings.brand
+      @brand = Brand.new(name: params[:user][:company])
+      @brand.save
+      if current_user.present?
         current_user.update_attributes(brand_id: @brand.id)
       end
-   elsif params[:user][:type_user] == Settings.retailler
-     @retailler = Retailler.new(name: params[:user][:company])
-     @retailler.save
-     if current_user.present?
+    elsif params[:user][:type_user] == Settings.retailler
+      @retailler = Retailler.new(name: params[:user][:company])
+      @retailler.save
+      if current_user.present?
        current_user.update_attributes(retailler_id: @retailler.id)
       end
-   end
+    elsif params[:user][:type_user] == Settings.show_room
+      @showroom = Showroom.new(name: params[:user][:company])
+      @showroom.save
+      if current_user.present?
+       current_user.update_attributes(showroom_id: @showroom.id)
+      end
+    end
   end
 
 end
