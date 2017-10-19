@@ -20,7 +20,7 @@
                             <div class="media-body">
                                 <h4 class="media-heading"><a href="#">Product name: <%= order.product.name_products %></a></h4>
                                 <h5 class="media-heading"> by <a href="#">Brand name: <%= order.product.brand.name %></a></h5>
-                                <h5 class="media-heading"> Collection: <a href="#"><%= order.product.collection.name_collections %></a></h5>
+                                <h5 class="media-heading"> Collection: <a href="#"><%= order.product.collection.present? ? order.product.collection.name_collections: "" %></a></h5>
                                 <span>Status: </span><span class="text-success"><strong><%= order.product.date_availability %></strong></span>
                             </div>
                         </div></td>
