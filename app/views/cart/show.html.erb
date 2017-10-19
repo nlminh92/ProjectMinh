@@ -60,14 +60,6 @@
             </table>
             <% if @card.status == 0 %>
             <div class="row">
-                <div class="col-md-3">
-                    <button type="button" class="btn btn-default">
-                    <span class="glyphicon glyphicon-shopping-cart"></span>
-                    <%= link_to collection_brand_path(@card.brand_id) do %>
-                        Continue Shopping
-                    <% end %>
-                </button>
-                </div>
                 <div class="col-md-3 col-md-offset-2">
                     <form action="/my_orders" method="POST">
                   <input type="hidden" value="<%= @card.id %>" name="card">
