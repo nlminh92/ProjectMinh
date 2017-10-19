@@ -42,7 +42,6 @@
                 <li><a href="/profiles"><i class="icon fa fa-book fa-fw"></i>My profile</a></li>
                 <li><a href="/networks"><i class="icon fa fa-file-o fa-fw"></i>My network</a></li>
                 <!-- <li><a href="/active_networks"><i class="icon fa fa-file-o fa-fw"></i>Active Connect</a></li> -->
-                <li><a href="/connections"><i class="icon fa fa-list-alt fa-fw"></i>Find Brands</a></li>
                 <li><a href="/notifies"><i class="icon fa fa-file-o fa-fw"></i>Notification(<%=  Connection.where(retailler_id: current_user.retailler.id, seen: 3).count %>)</a></li>
                 <li><a href="/retailler_notify"><i class="icon fa fa-file-o fa-fw"></i>Notification Order</a></li>
                 <li><a href="/my_orders"><i class="icon fa fa-bar-chart-o fa-fw"></i>My orders</a></li>
