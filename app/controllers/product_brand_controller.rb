@@ -21,8 +21,11 @@ class ProductBrandController < ApplicationController
 
   def create
     @brand_id = params[:id]
-    @card = Card.find_by(brand_id: @brand_id, retailler_id: current_user.retailler.id,
-      status: 0)
+    @card = Card.new(brand_id: params[:id],
+      retailler_id: current_user.retailler.id, total: 0,
+      count: 0, all_total: 0,
+      status: 0, shipping: 5.0)
+    @card.save
     @product = Product.find_by id: params[:product]
     @price = @product.price
     @total = @card.total

@@ -28,6 +28,9 @@
             <th>Gender</th>
             <th>Status</th>
             <th>View</th>
+
+            <th>Number</th>
+            <th>Order</th>
           </tr>
         </thead>
         <tbody>
@@ -44,11 +47,19 @@
               <td>InActive</td>
             <% end %>
             <td><%= link_to "View", product_path(product.id) %></td>
+
+            <form method="POST" action="/product_brand?id=<%=product.brand_id %>">
+              <input type="hidden" value="<%= product.id %>" name="product">
+              <td><input type="number" name="number" size="4" required="true"></td>
+              <td><button type="submit" class="btn btn-primary">Order</button></td>
+            </form>
           </tr>
         <% end %>
         </tbody>
       </table>
     </div>
+
+
   </div>
 
 <style>

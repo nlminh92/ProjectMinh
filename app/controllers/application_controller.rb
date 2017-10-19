@@ -28,11 +28,11 @@ class ApplicationController < ActionController::Base
   end
 
   def admin
-    if current_user.activated && current_user.type_user == 3
-      @showroom = current_user.showroom_id
-    else
-      redirect_to homes_path
-    end
+    # if current_user.activated && current_user.type_user == 3
+    #   @showroom = current_user.showroom_id
+    # else
+    #   redirect_to homes_path
+    # end
   end
 
   def is_admin
