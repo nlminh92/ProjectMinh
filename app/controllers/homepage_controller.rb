@@ -1,4 +1,9 @@
 class HomepageController < ApplicationController
+
+
   def index
-  end
+      def index
+        @users = User.where(activated: true)
+      end
+    end
 end
