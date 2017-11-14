@@ -1,54 +1,13 @@
-<div class="header-section">
-<div class="container">
-    <div class="row">
-        <div class="col-sm-5">
-            <a href="index.html" class="navbar-brand logo">
-                  
-                </a>
-        </div>
-        <div class="col-sm-7    ">
-            <div class="search-form">
-
-<div class="col-sm-4">
-<div class="row">
-  <div class="col-md-12">
-    <input class="form-control" placeholder="Search Showrooms" type="text">
+<div class="header-section row">
+  <div class="col-md-2">
+    <h5 style="color: white;">Monika</h5>
   </div>
-</div>
-</div>
-<!-- /.col 4 -->
 
-<div class="col-sm-4">
-<select class="form-control">
-  <option value="0" selected="selected">
-    Select your categorie
-  </option>
-  <option value="1">
-    All
-  </option>
-  <option value="2">
-    1
-  </option>
-  <option value="3">
-    2
-  </option>
-  <option value="4">
-    3
-  </option>
-</select>
-</div>
-<!-- /.col 3 -->
-<div class="col-sm-4">
-<%= form_tag(homes_path, :method => "get", id: "search-form") do %>
-    <%= submit_tag "Search" %>
-<% end %>
-</div>
-<!-- /.col 1 -->
-
-</div>
-        </div>
-    </div>
-</div>
+  <div class="col-md-2 col-md-offset-7">
+    <%= link_to new_user_session_path do %>
+      <button>Login</button>
+    <% end %>
+  </div>
 </div>
 
 <style>

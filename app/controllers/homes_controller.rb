@@ -8,5 +8,9 @@ class HomesController < ApplicationController
         @products = Product.all
       end
     end
+
+    if current_user.type_user == 3
+      @brands = Brand.where(showroom_id: current_user.showroom_id)
+    end
   end
 end
