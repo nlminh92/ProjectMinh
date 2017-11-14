@@ -4,12 +4,12 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
 
-  # root "homepage#index"
-  devise_scope :user do
-    root to: "devise/sessions#new"
-  end
+  root "homepage#index"
+  # devise_scope :user do
+    # root to: "devise/sessions#new"
+  # end
   resources :homepage
-  
+
   resources :homes
   resources :dashboards
   resources :products

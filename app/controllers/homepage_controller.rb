@@ -2,8 +2,6 @@ class HomepageController < ApplicationController
 
 
   def index
-      def index
-        @users = User.where(activated: true)
-      end
-    end
+    @users = User.where(activated: true).where("brand_id is not null")
+  end
 end
