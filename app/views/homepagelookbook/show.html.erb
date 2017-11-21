@@ -15,6 +15,7 @@
               <tr>
                <th>STT</th>
                 <th>Name Collection</th>
+                <th>Image</th>
                 <th>View</th>
               </tr>
             </thead>
@@ -24,6 +25,7 @@
                 <tr>
                   <td><%= index + 1 %></td>
                   <td><%= collection.name_collections %></td>
+                  <td><img src="<%= collection.image %>" alt="" class="image-product"></td>
                   <td><%= link_to collection.lookbook, "/lookbooks/#{collection.lookbook}", target: :_blank %>
                   </td>
                 </tr>

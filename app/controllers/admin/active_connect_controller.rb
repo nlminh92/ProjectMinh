@@ -7,7 +7,7 @@ class Admin::ActiveConnectController < ApplicationController
     @brands = Brand.where(showroom_id: current_user.showroom_id)
                   .where("accept is null")
   end
-
+  
   def create
     status_and_id = params[:accept].split("_")
     # byebug
