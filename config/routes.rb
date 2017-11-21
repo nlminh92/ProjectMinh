@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :dashboards
   resources :products
   resources :collections
+  resources :lookbooks
   get 'products/new'
   resources :cart
   get 'cart/index'
