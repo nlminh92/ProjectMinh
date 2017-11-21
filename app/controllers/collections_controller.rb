@@ -57,7 +57,7 @@ class CollectionsController < ApplicationController
       File.open(Rails.root.join('public', 'lookbooks',
         pdf_file_name_output), 'wb') do |file|
         file.write(upload_lookbook.read)
-      end
+      end 
       tmp = pdf_file_name_output
       @collection.update_attributes(lookbook: tmp.to_s)
     end
