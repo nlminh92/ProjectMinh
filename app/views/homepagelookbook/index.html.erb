@@ -6,9 +6,32 @@
         </br>
         </br>
         </br>    
-        <h4> This is brands : </h4>
+        <h4> Discover lookbook </h4>
 
-        
+        <div id="page-wrapper">
+        <div class="row">
+          <table class="table">
+            <thead>
+              <tr>
+               <th>STT</th>
+                <th>Name Collection</th>
+                <th>View</th>
+              </tr>
+            </thead>
+      
+            <tbody>
+              <% @collections.each_with_index do |collection, index| %>
+                <tr>
+                  <td><%= index + 1 %></td>
+                  <td><%= collection.name_collections %></td>
+                  <td><%= link_to collection.lookbook, "/lookbooks/#{collection.lookbook}", target: :_blank %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
 </div>
 
