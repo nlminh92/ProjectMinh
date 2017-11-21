@@ -6,8 +6,11 @@
         </br>
         </br>
         </br>
-        <h3> LESDAPPER.COM</h3>
-        <h4> Showrooms</h4>
+        <% if @users.present? %>
+            <h4> My brands :</h4>
+        <% else %>
+            <h4>Empty</h4>
+        <% end %>
 
         <div id="products" class="row list-group">
             <% @users.each_with_index do |user, index| %>
@@ -23,12 +26,12 @@
                     </div>
                     <div class="caption col-xs-12">
                         <h4 class="group inner list-group-item-heading">
-                        Name showroom:  <%= user.company %></h4>
+                        Name brands:  <%= user.company %></h4>
                         <h4 class="group inner list-group-item-heading">
                            Location: <%= user.address %></h4>
-                        <p class="group inner list-group-item-text"> </p>
+                         <p class="group inner list-group-item-text"> </p>
                         <div class="col-xs-10">
-                            <td> <%= link_to homepagebrand_path(user.showroom_id) do %>
+                            <td> <%= link_to homepagelookbook_path(user.brand_id) do %>
                                 <button type="submit" class="btn btn-primary">View</button>
                                 <% end %>
                             </td>
