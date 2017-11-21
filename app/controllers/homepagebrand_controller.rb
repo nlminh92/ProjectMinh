@@ -1,0 +1,2 @@
+class HomepagebrandController < ApplicationController
+end

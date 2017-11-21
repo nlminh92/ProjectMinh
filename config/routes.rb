@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   resources :homepage
 
   resources :homes
+  resources :homepagebrand
+  resources :homepagelookbook
   resources :dashboards
   resources :products
   resources :collections

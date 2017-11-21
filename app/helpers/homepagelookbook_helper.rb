@@ -1,0 +1,2 @@
+module HomepagelookbookHelper
+end

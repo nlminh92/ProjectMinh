@@ -1,0 +1,2 @@
+module HomepagebrandHelper
+end
